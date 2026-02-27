@@ -22,11 +22,17 @@
 }
 
 .home-reboot--alt {
-  --bg-1: #fff2e6;
-  --bg-2: #fff8ee;
-  --accent-a: #f06b3e;
-  --accent-b: #e1437d;
-  --chip: #fff0e7;
+  --bg-1: #16233a;
+  --bg-2: #0f2b45;
+  --ink: #ecf4ff;
+  --muted: #bdd0e8;
+  --line: rgba(165, 196, 236, 0.25);
+  --panel: rgba(17, 35, 56, 0.88);
+  --accent-a: #66b6ff;
+  --accent-b: #34d9bf;
+  --chip: #2b3f5b;
+  --chip-active: #d9ecff;
+  --chip-active-ink: #132948;
 }
 
 html[data-theme="dark"] .home-reboot {
@@ -78,12 +84,21 @@ html[data-theme="dark"] .home-reboot {
   box-shadow: 0 20px 40px rgba(17, 28, 51, 0.12);
 }
 
+.home-reboot--alt .hero-board {
+  background: radial-gradient(circle at 88% 10%, rgba(102, 182, 255, 0.24), transparent 28%), linear-gradient(160deg, var(--bg-1), var(--bg-2));
+  box-shadow: 0 20px 44px rgba(5, 13, 28, 0.42);
+}
+
 .hero-kicker {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.72rem;
   color: #2f55a8;
   font-weight: 700;
+}
+
+.home-reboot--alt .hero-kicker {
+  color: #9ac9ff;
 }
 
 .hero-copy h1 {
@@ -133,6 +148,12 @@ html[data-theme="dark"] .home-reboot {
 .home-reboot .btn-soft,
 .home-reboot .btn-soft:visited {
   color: #1a2f63 !important;
+}
+
+.home-reboot--alt .btn-soft,
+.home-reboot--alt .btn-soft:visited {
+  color: #dcecff !important;
+  background: rgba(220, 236, 255, 0.12);
 }
 
 .btn-lang {
@@ -331,11 +352,19 @@ html[data-theme="dark"] .home-reboot {
   background: rgba(255, 255, 255, 0.5);
 }
 
+.home-reboot--alt .tag-row li {
+  background: rgba(160, 201, 255, 0.13);
+}
+
 .card-link {
   margin-top: 0.1rem;
   font-size: 0.86rem;
   font-weight: 700;
   color: #2a4cb2;
+}
+
+.home-reboot--alt .card-link {
+  color: #8dc2ff;
 }
 
 .panel {

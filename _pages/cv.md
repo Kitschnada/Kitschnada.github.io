@@ -11,7 +11,7 @@ redirect_from:
 
 <div class="archive-intro-card cv-intro-card">
   <p class="archive-kicker">Curriculum Vitae</p>
-  <p>一个结构化 CV 版本，强调教育背景、经历、能力与成果。你可以在后续直接替换下面字段为真实信息。</p>
+  <p></p>
 </div>
 
 <div class="cv-layout-grid">
@@ -19,16 +19,8 @@ redirect_from:
     <h2>Education</h2>
     <ul class="cv-timeline">
       <li>
-        <h3>Ph.D in Version Control Theory</h3>
-        <p>GitHub University · 2018 (expected)</p>
-      </li>
-      <li>
-        <h3>M.S. in Jekyll</h3>
-        <p>GitHub University · 2014</p>
-      </li>
-      <li>
-        <h3>B.S. in GitHub</h3>
-        <p>GitHub University · 2012</p>
+        <h3>Undergraduate Student</h3>
+        <p>Southeast University · 2023-present</p>
       </li>
     </ul>
   </section>
@@ -37,19 +29,9 @@ redirect_from:
     <h2>Work Experience</h2>
     <ul class="cv-timeline">
       <li>
-        <h3>Academic Pages Collaborator</h3>
-        <p>GitHub University · Spring 2024</p>
-        <p class="cv-muted">Duties: updates and improvements to template</p>
-      </li>
-      <li>
-        <h3>Research Assistant</h3>
-        <p>GitHub University · Fall 2015</p>
-        <p class="cv-muted">Duties: merging pull requests</p>
-      </li>
-      <li>
-        <h3>Research Assistant</h3>
-        <p>GitHub University · Summer 2015</p>
-        <p class="cv-muted">Duties: issue triage and tagging</p>
+        <h3>Ongoing</h3>
+        <p>Ongoing</p>
+        <p class="cv-muted">Ongoing</p>
       </li>
     </ul>
   </section>
@@ -58,12 +40,10 @@ redirect_from:
 <section class="cv-block cv-block--full">
   <h2>Skills</h2>
   <ul class="cv-skill-tags">
-    <li>Research Communication</li>
+    <li>Pytorch</li>
     <li>Data Processing</li>
     <li>Web Engineering</li>
-    <li>LLM Application</li>
     <li>Technical Writing</li>
-    <li>Open Source Collaboration</li>
   </ul>
 </section>
 

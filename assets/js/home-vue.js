@@ -90,8 +90,8 @@
             }
           },
           focusPool: {
-            zh: ["重构个人网站交互", "沉淀研究项目案例", "打磨可复用前端模块"],
-            en: ["Rebuilding site interaction", "Curating research case studies", "Refining reusable UI modules"]
+            zh: ["构建个人网站", "2026保研", "参数高效微调研究"],
+            en: ["Building Personal Site", "2026 Postgraduate Admission", "Research on Parameter Efficient Fine-Tuning"]
           },
           tabDefs: [
             { key: "all", label: { zh: "全部", en: "All" } },
@@ -113,8 +113,8 @@
             },
             {
               url: withBase("/teaching/"),
-              label: { zh: "Teaching", en: "Teaching" },
-              hint: { zh: "课程与教学", en: "Courses and teaching" }
+              label: { zh: "Studying", en: "Studying" },
+              hint: { zh: "学习记录", en: "Learning notes" }
             },
             {
               url: withBase("/year-archive/"),
