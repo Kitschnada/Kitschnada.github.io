@@ -1,16 +1,27 @@
 ---
 layout: archive
-title: "Talks and presentations"
+title: "Talks and Presentations"
 permalink: /talks/
 author_profile: true
 ---
 
-{% if site.talkmap_link == true %}
+{% include base_path %}
 
-<p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
+<div class="archive-intro-card">
+  <p class="archive-kicker">Talks & Sharing</p>
+  <p>这里展示演讲、报告和 workshop 记录，按时间倒序排列，支持快速回看。</p>
+  {% if site.talkmap_link == true %}
+  <p class="archive-meta-link"><a href="{{ base_path }}/talkmap.html">Open the talk map</a></p>
+  {% endif %}
+</div>
 
-{% endif %}
-
-{% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
-{% endfor %}
+<div class="archive-topic-stack">
+  <section class="archive-topic-section">
+    <h2 class="archive-topic-title">Timeline</h2>
+    <div class="archive-topic-grid">
+      {% for post in site.talks reversed %}
+        {% include archive-single-talk.html %}
+      {% endfor %}
+    </div>
+  </section>
+</div>

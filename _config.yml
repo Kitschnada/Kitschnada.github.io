@@ -11,10 +11,10 @@ locale                   : "en-US"
 site_theme               : "default"
 title                    : "Liu Muqing's Homepage"
 title_separator          : "-"
-name                     : &name "Liu Muqing"
-description              : &description "personal description"
-url                      : https://liumq.github.io # the base hostname & protocol for your site e.g. "https://liumq.github.io"
-baseurl                  : "" # the subpath of your site, e.g. "/blog"
+name                     : "&name \"Liu Muqing\""
+description              : "&description \"personal description\""
+url                      : "https://liumq.github.io" # the base hostname & protocol for your site e.g. "https://liumq.github.io"
+baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "liumq.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
@@ -24,15 +24,15 @@ author:
   # Biographic information
   avatar           : "profile.png"
   name             : "Liu Muqing"
-  bio              : "Short biography for the left-hand sidebar"
+  bio              : "An undergraduate student studying AI who loves literature, movies, and all explainable questions."
   location         : "Computer Science"
   employer         : "Southeast University"
   uri              : # URL
-  email            : "213231385@seu.edu.cn" 
+  email            : "213231385@seu.edu.cn"
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "-"
+  googlescholar    : "https://scholar.google.com/citations?view_op=list_works&user=O716Jb4AAAAJ"
   impactstory      : # URL
   orcid            : "-"
   semantic         : # URL
@@ -44,7 +44,7 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "academicpages"
+  github           : "http://github.com/Kitschnada"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
@@ -350,3 +350,5 @@ compress_html:
   clippings: all
   ignore:
     envs: development
+
+

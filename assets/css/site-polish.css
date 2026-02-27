@@ -32,9 +32,72 @@
   letter-spacing: -0.01em;
 }
 
+.archive-shell__header {
+  margin-bottom: 0.8rem;
+}
+
+.archive-shell__content {
+  display: grid;
+  gap: 1rem;
+}
+
+.archive-intro-card {
+  border: 1px solid rgba(29, 48, 87, 0.14);
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  background: linear-gradient(115deg, rgba(237, 244, 255, 0.75), rgba(251, 246, 255, 0.72));
+}
+
+.archive-kicker {
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: #34579d;
+  font-weight: 700;
+}
+
+.archive-intro-card p {
+  margin: 0.4rem 0;
+  color: #4f5f7f;
+}
+
+.archive-meta-link a {
+  font-weight: 600;
+}
+
+.archive-topic-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.archive-topic-section {
+  border: 1px solid rgba(29, 48, 87, 0.12);
+  border-radius: 16px;
+  padding: 0.9rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.archive-topic-title {
+  margin: 0 0 0.65rem;
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  font-size: 1.24rem;
+}
+
+.archive-topic-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
 .list__item,
 .grid__item {
   margin-bottom: 1rem;
+}
+
+.archive-topic-grid .list__item,
+.archive-topic-grid .grid__item {
+  margin-bottom: 0;
 }
 
 .archive__item {
@@ -65,6 +128,106 @@
   border-radius: 999px;
 }
 
+.cv-intro-card {
+  margin-bottom: 0.2rem;
+}
+
+.cv-layout-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cv-block {
+  border: 1px solid rgba(20, 39, 73, 0.12);
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.cv-block--full {
+  margin: 0.05rem 0;
+}
+
+.cv-block h2 {
+  margin: 0 0 0.75rem;
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.cv-timeline,
+.cv-link-list,
+.cv-skill-tags {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cv-timeline {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.cv-timeline li {
+  border-left: 3px solid #5f82cc;
+  padding-left: 0.7rem;
+}
+
+.cv-timeline h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.cv-timeline p {
+  margin: 0.2rem 0 0;
+}
+
+.cv-muted {
+  color: #5c6987;
+}
+
+.cv-skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.cv-skill-tags li {
+  border: 1px solid rgba(53, 81, 141, 0.25);
+  border-radius: 999px;
+  padding: 0.25rem 0.72rem;
+  background: rgba(227, 236, 255, 0.65);
+  font-size: 0.88rem;
+}
+
+.cv-link-list {
+  display: grid;
+  gap: 0.62rem;
+}
+
+.cv-link-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  border-bottom: 1px dashed rgba(56, 81, 133, 0.2);
+  padding-bottom: 0.42rem;
+}
+
+.cv-link-list li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.cv-link-list a {
+  text-decoration: none;
+}
+
+.cv-link-list span {
+  color: #5f6b86;
+  font-size: 0.85rem;
+}
+
 .page__footer {
   background: linear-gradient(180deg, rgba(240, 246, 255, 0.7), rgba(245, 241, 255, 0.45));
 }
@@ -85,6 +248,36 @@ html[data-theme="dark"] .archive__item {
   box-shadow: none;
 }
 
+html[data-theme="dark"] .archive-intro-card,
+html[data-theme="dark"] .archive-topic-section,
+html[data-theme="dark"] .cv-block {
+  border-color: rgba(198, 212, 246, 0.16);
+  background: rgba(29, 36, 53, 0.9);
+}
+
+html[data-theme="dark"] .archive-kicker {
+  color: #8ab0ff;
+}
+
+html[data-theme="dark"] .archive-intro-card p,
+html[data-theme="dark"] .cv-muted,
+html[data-theme="dark"] .cv-link-list span {
+  color: #bac6e2;
+}
+
+html[data-theme="dark"] .cv-timeline li {
+  border-left-color: #8ab0ff;
+}
+
+html[data-theme="dark"] .cv-skill-tags li {
+  border-color: rgba(167, 189, 235, 0.25);
+  background: rgba(47, 62, 95, 0.62);
+}
+
+html[data-theme="dark"] .cv-link-list li {
+  border-bottom-color: rgba(167, 189, 235, 0.24);
+}
+
 html[data-theme="dark"] .archive__item-excerpt {
   color: #bac6e2;
 }
@@ -94,6 +287,10 @@ html[data-theme="dark"] .page__footer {
 }
 
 @media (max-width: 768px) {
+  .cv-layout-grid {
+    grid-template-columns: 1fr;
+  }
+
   .archive__item {
     padding: 0.9rem;
   }

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profile Editor</title>
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <h1>Website Profile Editor</h1>
+          <p>可视化修改 `_config.yml` 中的个人信息</p>
+        </div>
+        <div class="topbar-actions">
+          <button id="reloadBtn" class="btn ghost" type="button">重新读取</button>
+          <button id="saveBtn" class="btn primary" type="button">保存</button>
+        </div>
+      </header>
+
+      <p id="status" class="status"></p>
+
+      <section class="grid">
+        <article class="card">
+          <h2>站点信息</h2>
+          <div class="form-grid">
+            <label>Title<input data-path="root.title" /></label>
+            <label>Name<input data-path="root.name" /></label>
+            <label>Description<input data-path="root.description" /></label>
+            <label>URL<input data-path="root.url" /></label>
+            <label>Base URL<input data-path="root.baseurl" /></label>
+            <label>Locale<input data-path="root.locale" /></label>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>个人信息</h2>
+          <div class="form-grid">
+            <label>Author Name<input data-path="author.name" /></label>
+            <label>Bio<input data-path="author.bio" /></label>
+            <label>Location<input data-path="author.location" /></label>
+            <label>Employer<input data-path="author.employer" /></label>
+            <label>Email<input data-path="author.email" /></label>
+            <label>Avatar<input data-path="author.avatar" /></label>
+            <label>Website<input data-path="author.uri" /></label>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>学术 / 社交</h2>
+          <div class="form-grid">
+            <label>Google Scholar<input data-path="author.googlescholar" /></label>
+            <label>ORCID<input data-path="author.orcid" /></label>
+            <label>GitHub<input data-path="author.github" /></label>
+            <label>LinkedIn<input data-path="author.linkedin" /></label>
+            <label>ResearchGate<input data-path="author.researchgate" /></label>
+            <label>Semantic Scholar<input data-path="author.semantic" /></label>
+          </div>
+        </article>
+
+        <article class="card preview">
+          <h2>预览</h2>
+          <div class="preview-panel">
+            <p class="preview-title" data-preview="root.title"></p>
+            <p class="preview-name" data-preview="author.name"></p>
+            <p class="preview-bio" data-preview="author.bio"></p>
+            <ul>
+              <li><strong>Email:</strong> <span data-preview="author.email"></span></li>
+              <li><strong>Location:</strong> <span data-preview="author.location"></span></li>
+              <li><strong>Employer:</strong> <span data-preview="author.employer"></span></li>
+              <li><strong>GitHub:</strong> <span data-preview="author.github"></span></li>
+            </ul>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

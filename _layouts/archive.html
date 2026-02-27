@@ -15,10 +15,18 @@ layout: default
 <div id="main" role="main">
   {% include sidebar.html %}
 
-  <div class="archive">
+  {% assign archive_slug = page.permalink | default: page.url | replace: '/', ' ' | strip | replace: ' ', '-' | replace: '.html', '' %}
+  {% if archive_slug == '' %}
+    {% assign archive_slug = 'page' %}
+  {% endif %}
+  <div class="archive archive-shell archive-shell--{{ archive_slug }}">
     {% unless page.header.overlay_color or page.header.overlay_image %}
-      <h1 class="page__title">{{ page.title }}</h1>
+      <header class="archive-shell__header">
+        <h1 class="page__title">{{ page.title }}</h1>
+      </header>
     {% endunless %}
-    {{ content }}
+    <div class="archive-shell__content">
+      {{ content }}
+    </div>
   </div>
 </div>

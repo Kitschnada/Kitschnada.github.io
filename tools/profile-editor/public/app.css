@@ -1,0 +1,167 @@
+:root {
+  --bg: #f3f5fb;
+  --ink: #10182a;
+  --muted: #5e6c8b;
+  --line: rgba(35, 54, 95, 0.15);
+  --panel: #ffffff;
+  --primary: #1f4de3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #edf2ff, var(--bg));
+  color: var(--ink);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.topbar p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn.ghost {
+  background: #fff;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.status {
+  min-height: 24px;
+  margin: 12px 0;
+  color: var(--muted);
+}
+
+.status.ok {
+  color: #116a3a;
+}
+
+.status.err {
+  color: #9f1426;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+  color: var(--ink);
+}
+
+.preview-panel {
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: #f8faff;
+}
+
+.preview-title {
+  margin: 0;
+  color: #2a3d68;
+  font-size: 14px;
+}
+
+.preview-name {
+  margin: 4px 0 0;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.preview-bio {
+  margin: 8px 0;
+  color: var(--muted);
+}
+
+.preview ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.preview li {
+  margin-bottom: 5px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
