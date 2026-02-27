@@ -241,6 +241,10 @@ html[data-theme="dark"] .home-reboot {
   border-radius: 16px;
   padding: 0.95rem 1rem;
   background: var(--panel);
+  height: 136px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .workbench-head h2 {
@@ -256,6 +260,8 @@ html[data-theme="dark"] .home-reboot {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  height: 94px;
+  align-items: center;
 }
 
 .chip {
@@ -472,5 +478,11 @@ html[data-theme="dark"] .home-reboot {
   .contact-banner {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .workbench-head,
+  .chip-row {
+    height: auto;
+    min-height: 94px;
   }
 }

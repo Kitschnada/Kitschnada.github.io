@@ -124,17 +124,6 @@
           ],
           projects: [
             {
-              categories: ["ai", "research"],
-              type: { zh: "AI 系统", en: "AI SYSTEM" },
-              title: { zh: "校园知识问答助手", en: "Campus Knowledge Assistant" },
-              summary: {
-                zh: "基于检索增强与多轮对话，提供课程、活动与流程问答。",
-                en: "A retrieval-augmented assistant for campus courses, events, and process Q&A."
-              },
-              tags: { zh: ["AI", "RAG", "LLM"], en: ["AI", "RAG", "LLM"] },
-              url: withBase("/portfolio/")
-            },
-            {
               categories: ["web", "data"],
               type: { zh: "前端工程", en: "FRONTEND" },
               title: { zh: "融媒体中心管理系统", en: "Media Center Management System" },
@@ -144,17 +133,6 @@
               },
               tags: { zh: ["Flask", "Dashboard", "Data"], en: ["Flask", "Dashboard", "Data"] },
               url: "https://liumuqing.pythonanywhere.com"
-            },
-            {
-              categories: ["research"],
-              type: { zh: "研究项目", en: "RESEARCH" },
-              title: { zh: "可解释学习记录平台", en: "Interpretable Learning Log Platform" },
-              summary: {
-                zh: "把实验结论、可视化和反思记录到统一模板，便于复盘。",
-                en: "A structured platform to track experiments, visualizations, and reflections."
-              },
-              tags: { zh: ["Research", "UX", "Visualization"], en: ["Research", "UX", "Visualization"] },
-              url: withBase("/talks/")
             }
           ],
           skills: [
