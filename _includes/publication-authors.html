@@ -21,7 +21,7 @@
   {% assign me = site.author.name | downcase | strip | replace: " ", "" | replace: ".", "" %}
 
   <p class="{{ author_class }}">
-    <strong class="meta-label">{{ author_label }}</strong>
+    <span class="meta-label">{{ author_label }}</span>
     {% assign rendered = 0 %}
     {% for author in author_list %}
       {% assign author_clean = author | strip %}
