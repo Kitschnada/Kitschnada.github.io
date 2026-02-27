@@ -1,0 +1,113 @@
+{% include base_path %}
+
+<div id="home-app" :class="['home-lab', { 'alt-theme': accentMode }]" data-email="{{ site.author.email }}" data-base-path="{{ base_path }}">
+  <section class="home-hero">
+    <div class="hero-orb hero-orb--one"></div>
+    <div class="hero-orb hero-orb--two"></div>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">AI ENGINEERING · CREATIVE WEB</p>
+        <h1>{{ site.author.name | default: site.name }}</h1>
+        <p class="lead">
+          你好，我是木青。这个站点聚焦我的研究、工程项目与实践经验。
+          我正在构建结合 AI 与前端体验的产品原型，并持续迭代可落地的解决方案。
+        </p>
+        <div class="hero-actions">
+          <a class="btn-solid" href="{{ base_path }}/portfolio/">查看项目</a>
+          <a class="btn-ghost" href="{{ base_path }}/cv/">查看 CV</a>
+          <button class="btn-ghost" type="button" @click="toggleAccent">
+            <span v-text="accentMode ? '切换到蓝调主题' : '切换到暖调主题'"></span>
+          </button>
+        </div>
+        <ul class="hero-stats">
+          <li v-for="metric in metrics" :key="metric.label">
+            <strong v-text="metric.value"></strong>
+            <span v-text="metric.label"></span>
+          </li>
+        </ul>
+      </div>
+      <div class="hero-panel">
+        <p class="panel-kicker">Now Building</p>
+        <h2>Interactive Personal Lab</h2>
+        <p>
+          我希望把个人网站变成可持续更新的“数字工作台”，而不仅仅是静态介绍页。
+          当前版本加入了 Vue 驱动的内容筛选和实时状态模块。
+        </p>
+        <div class="status-line">
+          <span>当前时间</span>
+          <strong v-text="clockText"></strong>
+        </div>
+        <div class="status-line">
+          <span>当前焦点</span>
+          <strong v-text="focusText"></strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section home-section--projects">
+    <div class="section-head">
+      <h2>精选项目</h2>
+      <p>通过标签快速筛选，查看我在不同方向的实践。</p>
+    </div>
+    <div class="chip-row" role="tablist" aria-label="Project filters">
+      <button
+        v-for="tab in tabs"
+        :key="tab"
+        :class="['chip', { 'chip--active': activeTab === tab }]"
+        type="button"
+        @click="activeTab = tab"
+      >
+        <span v-text="tab"></span>
+      </button>
+    </div>
+    <div class="project-grid">
+      <article class="project-card" v-for="project in filteredProjects" :key="project.title">
+        <p class="project-type" v-text="project.type"></p>
+        <h3 v-text="project.title"></h3>
+        <p v-text="project.summary"></p>
+        <ul class="tag-row">
+          <li v-for="tag in project.tags" :key="project.title + '-' + tag" v-text="tag"></li>
+        </ul>
+        <a class="card-link" :href="project.url">查看详情</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="home-section home-section--skills">
+    <div class="section-head">
+      <h2>能力矩阵</h2>
+      <p>偏工程导向，强调从想法到交付的闭环。</p>
+    </div>
+    <div class="skill-grid">
+      <div class="skill-item" v-for="skill in skills" :key="skill.name">
+        <div class="skill-title">
+          <span v-text="skill.name"></span>
+          <span v-text="skill.level + '%'"></span>
+        </div>
+        <div class="skill-meter">
+          <i :style="{ width: skill.level + '%' }"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section home-section--contact">
+    <div>
+      <h2>联系我</h2>
+      <p>如果你想一起做点有意思的东西，欢迎直接发邮件。</p>
+    </div>
+    <div class="contact-actions">
+      <a class="btn-solid" href="mailto:{{ site.author.email }}">发送邮件</a>
+      <button class="btn-ghost" type="button" @click="copyEmail">
+        <span v-text="copied ? '邮箱已复制' : '复制邮箱地址'"></span>
+      </button>
+    </div>
+  </section>
+
+  <noscript>
+    <p class="noscript-note">
+      当前浏览器未启用 JavaScript，项目筛选与实时状态将不可用。
+    </p>
+  </noscript>
+</div>

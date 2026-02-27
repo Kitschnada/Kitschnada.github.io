@@ -1,0 +1,104 @@
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid rgba(26, 40, 69, 0.1);
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(10px);
+}
+
+.masthead__inner-wrap {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+.greedy-nav {
+  background: transparent;
+}
+
+.greedy-nav .visible-links a {
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.greedy-nav .visible-links a:hover {
+  background: rgba(67, 103, 189, 0.12);
+  color: #1b3d8f;
+}
+
+.page__title,
+.archive__item-title {
+  letter-spacing: -0.01em;
+}
+
+.list__item,
+.grid__item {
+  margin-bottom: 1rem;
+}
+
+.archive__item {
+  border: 1px solid rgba(20, 39, 73, 0.1);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(31, 46, 84, 0.06);
+}
+
+.archive__item-title {
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0;
+}
+
+.archive__item-excerpt {
+  color: #59637a;
+}
+
+.page__content .archive__item a,
+.page__content .archive__item a:hover {
+  text-decoration: none;
+}
+
+.btn,
+.pagination--pager {
+  border-radius: 999px;
+}
+
+.page__footer {
+  background: linear-gradient(180deg, rgba(240, 246, 255, 0.7), rgba(245, 241, 255, 0.45));
+}
+
+html[data-theme="dark"] .masthead {
+  border-bottom-color: rgba(214, 222, 245, 0.14);
+  background: rgba(17, 22, 35, 0.82);
+}
+
+html[data-theme="dark"] .greedy-nav .visible-links a:hover {
+  background: rgba(130, 162, 237, 0.2);
+  color: #d8e6ff;
+}
+
+html[data-theme="dark"] .archive__item {
+  border-color: rgba(198, 212, 246, 0.16);
+  background: rgba(29, 36, 53, 0.9);
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .archive__item-excerpt {
+  color: #bac6e2;
+}
+
+html[data-theme="dark"] .page__footer {
+  background: linear-gradient(180deg, rgba(22, 30, 44, 0.66), rgba(20, 18, 33, 0.68));
+}
+
+@media (max-width: 768px) {
+  .archive__item {
+    padding: 0.9rem;
+  }
+
+  .greedy-nav .visible-links a {
+    padding: 0.3rem 0.55rem;
+  }
+}
