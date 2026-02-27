@@ -1,0 +1,40 @@
+{% assign author_names = include.authors %}
+{% assign author_label = include.label | default: "Authors:" %}
+{% assign author_class = include.class | default: "archive__meta archive__meta--authors" %}
+
+{% if author_names %}
+  {% assign author_blob = "" %}
+  {% for raw_author in author_names %}
+    {% assign raw_author_clean = raw_author | strip %}
+    {% if raw_author_clean != "" %}
+      {% if author_blob == "" %}
+        {% assign author_blob = raw_author_clean %}
+      {% else %}
+        {% assign author_blob = author_blob | append: ", " | append: raw_author_clean %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  {% if author_blob == "" %}
+    {% assign author_blob = author_names %}
+  {% endif %}
+  {% assign author_list = author_blob | split: "," %}
+  {% assign me = site.author.name | downcase | strip | replace: " ", "" | replace: ".", "" %}
+
+  <p class="{{ author_class }}">
+    <strong class="meta-label">{{ author_label }}</strong>
+    {% assign rendered = 0 %}
+    {% for author in author_list %}
+      {% assign author_clean = author | strip %}
+      {% if author_clean != "" %}
+        {% if rendered > 0 %}, {% endif %}
+        {% assign author_norm = author_clean | downcase | strip | replace: " ", "" | replace: ".", "" %}
+        {% if author_norm == me %}
+          <strong class="author-highlight">{{ author_clean }}</strong>
+        {% else %}
+          {{ author_clean }}
+        {% endif %}
+        {% assign rendered = rendered | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  </p>
+{% endif %}

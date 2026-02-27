@@ -1,7 +1,17 @@
+<script>
+  (function () {
+    var accent = "cool";
+    try {
+      accent = window.localStorage && window.localStorage.getItem("home_accent") === "1" ? "warm" : "cool";
+    } catch (error) {
+      accent = "cool";
+    }
+    document.documentElement.setAttribute("data-accent", accent);
+  })();
+</script>
 <script src="{{ base_path }}/assets/js/main.min.js"></script>
 {% if page.url == "/" %}
-<script defer src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
-<script defer src="{{ base_path }}/assets/js/home-vue.js"></script>
+<script defer src="{{ base_path }}/assets/js/home-ui.js"></script>
 {% endif %}
 
 {% include analytics.html %}

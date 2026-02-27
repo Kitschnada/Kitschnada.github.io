@@ -1,15 +1,32 @@
 {% include base_path %}
+{% assign share_url = page.url | absolute_url %}
+{% assign share_url_escaped = share_url | uri_escape %}
+{% assign share_title = page.title | default: site.title | strip_html | strip_newlines | uri_escape %}
 
 <section class="page__share">
   {% if site.data.ui-text[site.locale].share_on_label %}
     <h4 class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: "Share on" }}</h4>
   {% endif %}
 
-  <a href="https://bsky.app/intent/compose?text={{ base_path }}{{ page.url }}" class="btn btn--bluesky" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Bluesky"><i class="fab fa-bluesky" aria-hidden="true"></i><span> Bluesky</span></a>
+  <a href="https://bsky.app/intent/compose?text={{ share_url_escaped }}" class="btn btn--bluesky" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Bluesky"><i class="fab fa-bluesky" aria-hidden="true"></i><span> Bluesky</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u={{ base_path }}{{ page.url }}" class="btn btn--facebook" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url_escaped }}" class="btn btn--facebook" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ base_path }}{{ page.url }}" class="btn btn--linkedin" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ share_url_escaped }}" class="btn btn--linkedin" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 
-  <a href="https://x.com/intent/post?text={{ base_path }}{{ page.url }}" class="btn btn--x" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span> X (formerly Twitter)</span></a>
+  <a href="https://x.com/intent/post?text={{ share_url_escaped }}" class="btn btn--x" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span> X (formerly Twitter)</span></a>
+
+  <a href="https://service.weibo.com/share/share.php?url={{ share_url_escaped }}&title={{ share_title }}" class="btn btn--weibo" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Weibo"><i class="fab fa-weibo" aria-hidden="true"></i><span> Weibo</span></a>
+
+  <a href="https://connect.qq.com/widget/shareqq/index.html?url={{ share_url_escaped }}&title={{ share_title }}" class="btn btn--qq" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} QQ"><i class="fab fa-qq" aria-hidden="true"></i><span> QQ</span></a>
+
+  <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{ share_url_escaped }}&title={{ share_title }}" class="btn btn--qzone" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Qzone"><i class="fa-solid fa-star" aria-hidden="true"></i><span> Qzone</span></a>
+
+  <a href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data={{ share_url_escaped }}" class="btn btn--wechat" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} WeChat" target="_blank" rel="noopener noreferrer"><i class="fab fa-weixin" aria-hidden="true"></i><span> WeChat QR</span></a>
+
+  <a href="https://www.bilibili.com/" class="btn btn--bilibili" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Bilibili" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-circle-play" aria-hidden="true"></i><span> Bilibili</span></a>
+
+  <a href="https://www.zhihu.com/share?url={{ share_url_escaped }}&title={{ share_title }}" class="btn btn--zhihu" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Zhihu" target="_blank" rel="noopener noreferrer"><i class="fab fa-zhihu" aria-hidden="true"></i><span> Zhihu</span></a>
+
+  <a href="https://www.xiaohongshu.com/explore" class="btn btn--xiaohongshu" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Xiaohongshu" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span> Xiaohongshu</span></a>
 </section>

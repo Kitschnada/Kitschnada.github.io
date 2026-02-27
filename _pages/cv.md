@@ -73,7 +73,7 @@ redirect_from:
   </section>
 </div>
 
-<section class="cv-block cv-block--full">
+<!-- <section class="cv-block cv-block--full">
   <h2>Teaching</h2>
   <ul class="cv-link-list">
     {% for post in site.teaching reversed %}
@@ -83,4 +83,4 @@ redirect_from:
     </li>
     {% endfor %}
   </ul>
-</section>
+</section> -->
