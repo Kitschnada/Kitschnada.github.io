@@ -1,10 +1,25 @@
 ---
 permalink: /
-title: "Liu Muqing | Personal Site"
-layout: splash
-excerpt: "Liu Muqing's Homepage"
+title: "月下庭院 · 刘穆清"
+layout: default
+entrance: true
+excerpt: "一庭月色，日常与所思。刘穆清的个人庭院。"
 redirect_from:
-- /about/
-- /about.html
+  - /about/
+  - /about.html
 ---
-{% include home-landing.html %}
+<div class="garden-gate" data-ink-scene>
+  <header class="gate-header"><h1 class="gate-brand">{% include garden-text.html zh="刘穆清 · 私庭" en="Liu Muqing · A private garden" %}</h1>{% include garden-controls.html %}</header>
+  <div class="gate-frame" aria-hidden="true"></div>
+  <div class="gate-inscription" aria-hidden="true"><span>月下庭院</span></div>
+  <img class="gate-branch" src="{{ '/assets/art/ink-branch.svg' | relative_url }}" alt="" width="700" height="620">
+  <div class="gate-center">
+    <a class="moon-door" href="{{ '/home/' | relative_url }}" aria-label="点击月亮，进入主页 / Enter the garden">
+      <img src="{{ '/assets/art/moon.svg' | relative_url }}" alt="" width="320" height="320" fetchpriority="high"><span class="moon-door-label">{% include garden-text.html zh="入庭" en="Enter" %}</span>
+    </a>
+    <p class="gate-invitation">{% include garden-text.html zh="月色候人，入庭少坐。" en="The moon awaits. Enter, and rest a while." %}</p>
+  </div>
+  <img class="gate-landscape" src="{{ '/assets/art/ink-landscape.svg' | relative_url }}" alt="" width="1400" height="680">
+  <img class="gate-leaf" src="{{ '/assets/art/leaf.svg' | relative_url }}" alt="" width="66" height="120">
+  <footer class="gate-footer"><span>吉甫作诵，穆如清风。</span><span>{% include garden-text.html zh="月下庭院 · 序" en="A moonlit garden · Prologue" %}</span></footer>
+</div>

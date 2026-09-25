@@ -1,31 +1,14 @@
 ---
 layout: compress
 ---
-
-{% include base_path %}
-
 <!doctype html>
-<html lang="{{ site.locale | slice: 0,2 }}" class="no-js"{% if site.site_theme == "dark" %} data-theme="dark"{% endif %}>
-  <head>
-    {% include head.html %}
-    {% include head/custom.html %}
-  </head>
-
-  <body>
-
-    {% include browser-upgrade.html %}
-    {% include masthead.html %}
-
-    {{ content }}
-
-    <div class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include footer.html %}
-      </footer>
-    </div>
-
+<html lang="zh-CN" class="no-js" data-theme="light" data-lang="zh">
+  <head>{% include head.html %}{% include head/custom.html %}</head>
+  <body class="{% if page.entrance %}garden-entrance{% elsif page.url == '/home/' %}garden-home{% else %}garden-interior{% endif %}">
+    <a class="skip-link" href="#main">{% include garden-text.html zh="跳至内容" en="Skip to content" %}</a>
+    {% unless page.entrance %}{% include masthead.html %}{% endunless %}
+    <main id="main">{{ content }}</main>
+    {% unless page.entrance %}{% include footer.html %}{% endunless %}
     {% include scripts.html %}
-
   </body>
 </html>

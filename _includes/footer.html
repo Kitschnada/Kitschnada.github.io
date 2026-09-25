@@ -1,32 +1,7 @@
-{% include base_path %}
-
-{% if site.author.github or site.author.bitbucket or site.atom_feed.hide != true %}
-<div class="page__footer-follow">
-  <ul class="social-icons">
-    {% if site.data.ui-text[site.locale].follow_label %}
-    <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
-    {% endif %}
-    {% if site.author.github %}
-    <li><a href="{{ site.author.github}}"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
-    {% endif %}
-    <!-- {% if site.author.bitbucket %}
-    <li><a href="http://bitbucket.org/{{ site.author.bitbucket }}"><i class="fab fa-bitbucket" aria-hidden="true"></i>
-        Bitbucket</a></li>
-    {% endif %}
-    {% if site.atom_feed.hide != true %}
-    <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}"><i
-          class="fa fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default:
-        "Feed" }}</a></li>
-    {% endif %} -->
-  </ul>
-</div>
-{% endif %}
-
-<div class="page__footer-copyright">
-  &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}, {{
-  site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="http://jekyllrb.com"
-    rel="nofollow">Jekyll</a> &amp; <a
-    href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a
-    href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated {{ "now" | date: '%Y-%m-%d' %}}
-</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-colophon"><span class="footer-moon" aria-hidden="true">◒</span><p lang="zh-CN">吉甫作诵，穆如清风。</p></div>
+    <nav class="footer-nav" aria-label="More pages"><a href="{{ '/' | relative_url }}">{% include garden-text.html zh="庭门" en="Entrance" %}</a></nav>
+    <div class="footer-bottom"><span>© {{ site.time | date: '%Y' }} {{ site.author.name }}</span><a href="#main" class="back-to-top">{% include garden-text.html zh="回到页首" en="Back to top" %}<span aria-hidden="true">↑</span></a></div>
+  </div>
+</footer>

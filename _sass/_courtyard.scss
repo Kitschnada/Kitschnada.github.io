@@ -1,0 +1,305 @@
+/* An open, thread-bound book: ink rules, vertical inscriptions and misted hills. */
+:root {
+  --rule: #918574;
+  --paper-edge: #e1d7c5;
+  --paper-shade: #e8dfcb;
+  --accent: #835d46;
+  --line: #c6bba6;
+  --muted: #6a675b;
+}
+html[data-theme="dark"] {
+  --rule: #718093;
+  --paper-edge: #1b283b;
+  --paper-shade: #162335;
+  --line: #3b4b60;
+  --accent: #c3b090;
+  --muted: #adb8c9;
+}
+body {
+  background-image: radial-gradient(ellipse at 18% 20%, #b6a17612, transparent 58%), linear-gradient(90deg, var(--paper-edge), transparent 5%, transparent 95%, var(--paper-edge));
+}
+body::before { opacity: .46; }
+html[data-theme="dark"] body::before { opacity: .12; }
+.site-shell, .header-inner, .footer-inner { max-width: 1180px; }
+.site-header { position: relative; height: 112px; background: transparent; }
+.header-inner { border-bottom: 1px solid var(--line); }
+.site-signature { gap: 18px; }
+.signature-title { font: 27px/1.5 var(--font-poem); letter-spacing: .15em; }
+.signature-owner { border-left: 1px solid var(--line); padding-left: 17px; font-size: 13px; letter-spacing: .15em; }
+.site-signature .signature-owner small { font-size: 10px; letter-spacing: .1em; margin-top: 5px; }
+.header-right { gap: 35px; align-self: stretch; }
+.garden-nav { gap: 0; align-items: stretch; }
+.garden-nav > a, .nav-dropdown > summary { min-width: 60px; height: 100%; padding: 31px 19px 24px; justify-content: center; display: flex; flex-direction: column; align-items: center; position: relative; }
+.garden-nav > a > .lang-zh, .nav-dropdown > summary > .lang-zh { writing-mode: vertical-rl; letter-spacing: .25em; font-size: 17px; }
+.garden-nav > a::after { display: none; }
+.garden-nav > a[aria-current], .nav-dropdown[data-current] > summary { color: var(--accent); background: linear-gradient(180deg, transparent 14%, var(--paper-shade)); }
+.garden-nav > a[aria-current]::before, .nav-dropdown[data-current] > summary::before { content: ""; position: absolute; bottom: 8px; width: 5px; height: 5px; background: var(--accent); transform: rotate(45deg); }
+.nav-dropdown { position: relative; }
+.nav-dropdown summary { cursor: pointer; list-style: none; }
+.nav-dropdown summary::-webkit-details-marker { display: none; }
+.nav-chevron { font: 11px/1 var(--font-body); position: absolute; bottom: 9px; right: 10px; }
+.nav-dropdown[open] .nav-chevron { transform: rotate(180deg); }
+.nav-submenu { position: absolute; top: calc(100% - 6px); left: -36px; min-width: 170px; padding: 13px 24px; border: 3px double var(--rule); background: var(--paper); box-shadow: 4px 4px 0 var(--paper-shade); }
+.nav-submenu::before { content: ""; position: absolute; inset: 5px; border: 1px solid var(--line); pointer-events: none; }
+.nav-submenu a { display: block; white-space: nowrap; padding: 8px 4px; font-size: 14px; letter-spacing: .12em; }
+.nav-submenu a::after { display: none; }
+.site-controls { font-size: 12px; gap: 13px; }
+html[data-lang="en"] .signature-title { font: italic 19px/1.5 var(--font-body); letter-spacing: 0; }
+html[data-lang="en"] .signature-owner { letter-spacing: 0; }
+html[data-lang="en"] .garden-nav > a, html[data-lang="en"] .nav-dropdown > summary { padding-inline: 14px; font-size: 14px; }
+
+/* The opening leaf: horizontal identity, a quiet poem, then a separate landscape. */
+.garden-room { margin: 27px 0 32px; position: relative; isolation: isolate; display: grid; grid-template-columns: 1.05fr 1fr; border: 4px double var(--rule); padding: 43px 0 23px; min-height: 610px; }
+.garden-room::before, .interior-shell::before { content: ""; position: absolute; inset: 7px; border: 1px solid var(--line); pointer-events: none; z-index: -1; }
+.book-running-title { position: absolute; left: 25px; right: 25px; top: 13px; display: flex; justify-content: space-between; color: var(--muted); font-size: 10px; letter-spacing: .23em; }
+.room-intro { position: relative; isolation: isolate; min-width: 0; display: flex; flex-direction: column; padding: 25px 39px 0; }
+.room-frontispiece { position: relative; z-index: 1; }
+.room-title { display: block; }
+.room-title #hero-name { display: block; margin: 0; font: 44px/1.35 var(--font-body); writing-mode: horizontal-tb; letter-spacing: .16em; padding: 0; border: 0; }
+.room-title > p { font-size: 12px; letter-spacing: .25em; margin: 10px 0 0; color: var(--muted); }
+.room-personal { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-top: 18px; }
+.room-bio { color: var(--muted); font-size: 15px; line-height: 1.9; margin: 0; }
+.room-personal .text-link { font-size: 12px; flex-shrink: 0; }
+.room-intro .hero-poem { margin: 39px 0 0; min-height: 0; }
+.room-intro .hero-poem blockquote { font: 27px/1.9 var(--font-poem); letter-spacing: .08em; max-width: 100%; }
+.hero-poem figcaption { gap: 7px 9px; font-size: 11px; margin-top: 18px; line-height: 1.9; }
+.hero-poem .poem-line { width: 15px; }
+.hero-poem[lang="en"] blockquote { font: italic 22px/1.75 var(--font-poem); letter-spacing: 0; }
+.hero-poem[lang="en"] cite::before, .hero-poem[lang="en"] cite::after { content: none; }
+.hero-poem[lang="en"] cite { font-style: italic; }
+.room-landscape { position: relative; flex: 1; min-height: 155px; margin: 18px -32px 0; overflow: hidden; pointer-events: none; opacity: .6; }
+.room-landscape > img:first-child { position: absolute; width: 100%; max-width: none; bottom: -28px; left: 0; }
+.room-moon { position: absolute; width: 77px; bottom: 79px; left: 46%; opacity: .65; }
+.room-journal { display: flex; flex-direction: column; border-left: 3px double var(--line); margin-block: 15px 3px; padding: 10px 38px 22px; min-width: 0; position: relative; }
+.room-journal::before { content: ""; position: absolute; top: 47%; left: -6px; height: 28px; width: 9px; background: var(--paper); border-block: 4px solid var(--rule); clip-path: polygon(0 0,100% 0,55% 18%,55% 82%,100% 100%,0 100%,45% 82%,45% 18%); }
+.recent-heading { display: flex; justify-content: space-between; align-items: center; gap: 18px; border-bottom: 1px solid var(--line); padding-bottom: 24px; min-height: 90px; }
+.recent-heading > div { display: flex; align-items: center; flex-direction: row-reverse; gap: 17px; }
+.section-sidenote { writing-mode: vertical-rl; font-size: 10px; letter-spacing: .23em; color: var(--muted); }
+.recent-heading h2 { font: 32px/1.5 var(--font-body); letter-spacing: .17em; }
+.recent-heading .text-link { font-size: 12px; border: 0; }
+.room-journal .journal-entry { padding-block: 28px; }
+.room-journal .journal-entry h3 { font-size: 22px; line-height: 1.6; }
+.journal-end { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: auto; padding-top: 32px; color: var(--muted); font-size: 11px; letter-spacing: .25em; opacity: .7; }
+.journal-end img { width: 18px; transform: rotate(45deg); }
+html[data-theme="dark"] .room-landscape { filter: brightness(1.9) saturate(.35); opacity: .48; }
+html[data-theme="dark"] .gate-landscape { filter: brightness(1.9) saturate(.35); opacity: .55; }
+html[data-theme="dark"] .room-moon { filter: grayscale(.8) brightness(1.45); opacity: .8; }
+html[data-lang="en"] .room-title #hero-name { font-size: 38px; letter-spacing: .015em; }
+html[data-lang="en"] .room-title > p { letter-spacing: .04em; }
+html[data-lang="en"] .recent-heading h2 { font: 26px/1.4 var(--font-body); letter-spacing: 0; }
+html[data-lang="en"] .section-sidenote { display: none; }
+
+/* Interior pages carry the same block-printed border and marginal title. */
+.interior-shell { position: relative; isolation: isolate; border: 4px double var(--rule); margin-block: 27px 32px; padding: 37px 48px 54px; min-height: calc(100svh - 330px); }
+.page-heading { position: relative; display: flex; align-items: center; gap: 27px; min-height: 140px; padding: 0 0 30px; border-bottom: 1px solid var(--rule); margin-bottom: 30px; }
+.page-heading::after { content: ""; position: absolute; right: 0; top: -24px; bottom: 0; width: 40%; background: url("../art/ink-branch.svg") right 17% / 290px auto no-repeat; opacity: .14; z-index: -1; }
+.page-heading-ornament { flex-shrink: 0; display: flex; align-items: center; gap: 11px; writing-mode: vertical-rl; font-size: 10px; line-height: 1.4; letter-spacing: .16em; padding: 12px 7px; border-inline: 1px solid var(--rule); color: var(--muted); }
+.fish-tail { width: 17px; height: 7px; display: block; background: var(--rule); clip-path: polygon(0 0,100% 0,50% 100%); }
+.page-heading h1 { font-family: var(--font-body); font-size: 39px; letter-spacing: .16em; }
+.page-intro { margin-top: 10px; font-size: 15px; letter-spacing: .1em; }
+html[data-lang="en"] .page-heading h1 { font-family: var(--font-body); letter-spacing: 0; }
+html[data-lang="en"] .page-intro { letter-spacing: 0; }
+.blog-list { max-width: none; }
+.blog-index { border-top: 0; gap: 28px; padding: 0 0 18px; margin-bottom: 25px; }
+.blog-index a:last-child { margin-left: 0; }
+.blog-index a[aria-current] { color: var(--accent); text-decoration: underline; text-underline-offset: 8px; }
+.entry-count { margin-left: auto; color: var(--muted); font-size: 12px; }
+.journal-entry { position: relative; }
+.entry-arrow { font-size: 13px; opacity: .7; }
+.entry-meta { font-size: 11px; letter-spacing: .08em; }
+.empty-garden { min-height: 240px; background: url("../art/ink-landscape.svg") center bottom / 580px auto no-repeat; }
+.empty-mark { display: none; }
+.empty-garden p { font: 27px/1.8 var(--font-body); writing-mode: vertical-rl; padding: 0; letter-spacing: .35em; }
+.empty-garden .lang-en { writing-mode: horizontal-tb; }
+.profile-page { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; padding-block: 10px 30px; }
+.profile-intro h2 { margin-top: 0; }
+.profile-intro > p { font-size: 18px; color: var(--muted); }
+.profile-contact { border-left: 1px solid var(--line); padding-left: 35px; }
+.profile-contact h2 { margin: 0 0 18px; font: 28px/1.5 var(--font-body); }
+.profile-contact > p { color: var(--muted); font-size: 15px; }
+.profile-contact > .eyebrow { display: none; }
+.cv-section > h2 { font-family: var(--font-body); letter-spacing: .12em; }
+.cv-section { border-bottom-style: dotted; }
+.work-number { font-style: normal; }
+.work-sketch { border-width: 3px; border-style: double; transform: none; }
+.reading-page { max-width: 844px; position: relative; border: 4px double var(--rule); margin-block: 27px 32px; padding: 39px 54px 65px; }
+.reading-page::before { content: ""; position: absolute; inset: 6px; border: 1px solid var(--line); pointer-events: none; }
+.reading-header { border-bottom: 3px double var(--rule); }
+.reading-back { margin-bottom: 30px; }
+.prose blockquote { border-left: 3px double var(--rule); }
+.site-footer { border-top: 0; }
+.footer-inner, .garden-home .footer-inner { border-top: 1px solid var(--line); padding: 20px 0 23px; gap: 21px; }
+.footer-colophon p { letter-spacing: .12em; }
+.footer-moon { display: none; }
+
+/* The moon is the only doorway. Hills dissolve into the paper below it. */
+.garden-entrance { min-height: 100svh; }
+.garden-gate { min-height: max(760px, 100svh); position: relative; isolation: isolate; overflow: hidden; }
+.gate-header { position: absolute; left: 65px; right: 65px; top: 26px; display: flex; align-items: center; justify-content: space-between; z-index: 5; }
+.gate-brand { font-size: 13px; letter-spacing: .2em; color: var(--muted); }
+.gate-frame { position: absolute; inset: 92px 52px 69px; border: 4px double var(--rule); pointer-events: none; z-index: 3; }
+.gate-frame::before { content: ""; position: absolute; inset: 8px; border: 1px solid var(--line); }
+.gate-frame::after { content: ""; position: absolute; top: 0; left: 24px; bottom: 0; width: 7px; border-inline: 1px solid var(--line); opacity: .8; }
+.gate-inscription { position: absolute; left: 15%; top: 21%; display: flex; gap: 22px; writing-mode: vertical-rl; align-items: center; z-index: 2; }
+.gate-inscription > span { font: 53px/1.5 var(--font-poem); letter-spacing: .22em; padding: 20px 8px 8px; border: 3px double var(--rule); }
+.gate-inscription small { font: 13px/1.5 var(--font-body); letter-spacing: .35em; }
+.gate-side-note { position: absolute; right: 12%; bottom: 23%; writing-mode: vertical-rl; font-size: 12px; letter-spacing: .35em; color: var(--muted); z-index: 2; }
+.gate-center { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; width: min(520px, 60%); margin-inline: auto; padding-top: clamp(145px, 19svh, 255px); }
+.moon-door { display: grid; place-items: center; width: clamp(270px, 29vw, 405px); aspect-ratio: 1; position: relative; border-radius: 50%; }
+.moon-door img { width: 125%; max-width: 125%; position: absolute; transition: transform .6s, filter .6s; }
+.moon-door::before { content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: 0 0 80px 25px #cbb89124; }
+.moon-door-label { position: relative; z-index: 1; font: 25px/1.6 var(--font-body); letter-spacing: .28em; writing-mode: vertical-rl; }
+html[data-lang="en"] .moon-door-label { writing-mode: horizontal-tb; font: italic 21px var(--font-body); letter-spacing: .1em; }
+.moon-door:hover img, .moon-door:focus-visible img { transform: scale(1.025); filter: brightness(1.05); }
+.gate-invitation { margin-top: 16px; font-size: 13px; letter-spacing: .23em; color: var(--muted); text-align: center; }
+.gate-branch { position: absolute; right: -5%; top: 60px; width: min(46vw, 650px); z-index: 1; opacity: .53; pointer-events: none; }
+.gate-landscape { position: absolute; bottom: 46px; left: 0; width: 100%; max-width: none; z-index: -1; opacity: .68; }
+.gate-leaf { position: absolute; left: 34%; bottom: 27%; width: 22px; transform: rotate(46deg); opacity: .45; }
+.gate-footer { position: absolute; bottom: 24px; left: 65px; right: 65px; display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 10px; letter-spacing: .15em; }
+html[data-theme="dark"] .moon-door img { filter: grayscale(.8) brightness(1.55); }
+html[data-theme="dark"] .moon-door::before { box-shadow: 0 0 100px 30px #769bc21c; }
+html[data-theme="dark"] .moon-door-label { color: #27364c; }
+html[data-theme="dark"] .gate-branch { filter: brightness(1.7) saturate(.4); opacity: .5; }
+html[data-theme="dark"] .page-heading::after { filter: brightness(2); }
+html[data-theme="dark"] .empty-garden { background-blend-mode: luminosity; }
+@media (prefers-reduced-motion: no-preference) {
+  .gate-center, .gate-inscription, .garden-room { animation: garden-arrive .8s both; }
+}
+@media (max-width: 1100px) {
+  .header-right { gap: 18px; }
+  .signature-owner { display: none; }
+  .garden-nav > a, .nav-dropdown > summary { min-width: 53px; padding-inline: 15px; }
+  .garden-room { grid-template-columns: 1.05fr 1fr; }
+  .room-intro { padding-inline: 29px; }
+  .room-title #hero-name { font-size: 40px; }
+  .room-landscape { margin-inline: -22px; }
+  .room-intro .hero-poem blockquote { font-size: 24px; }
+  .hero-poem[lang="en"] blockquote { font-size: 20px; }
+  .room-journal { padding-inline: 25px; }
+  .profile-page { gap: 35px; }
+  .profile-contact { padding-left: 25px; }
+  .interior-shell { padding-inline: 35px; }
+}
+@media (max-width: 850px) and (min-width: 761px) {
+  .site-shell, .header-inner, .footer-inner { width: calc(100% - 48px); }
+  .signature-title { font-size: 23px; }
+  .garden-nav > a, .nav-dropdown > summary { min-width: 45px; padding-inline: 10px; }
+  .header-right { gap: 10px; }
+  .site-controls { gap: 8px; font-size: 11px; }
+  .theme-to-dark, .theme-to-light { display: none !important; }
+  .room-journal { padding-inline: 23px; }
+  html[data-lang="en"] .signature-title { max-width: 115px; font-size: 17px; }
+  html[data-lang="en"] .garden-nav > a, html[data-lang="en"] .nav-dropdown > summary { padding-inline: 9px; font-size: 12px; }
+}
+@media (max-width: 760px) {
+  .site-shell, .header-inner, .footer-inner { width: calc(100% - 32px); }
+  .site-header { height: 94px; }
+  .header-inner { gap: 10px; }
+  .signature-title { font-size: 23px; letter-spacing: .07em; }
+  html[data-lang="en"] .signature-title { max-width: 115px; font-size: 17px; }
+  .header-right { gap: 14px; }
+  .site-controls { gap: 8px; font-size: 11px; }
+  .js .garden-nav { top: 84px; left: 16px; right: 16px; border: 3px double var(--rule); }
+  .js .garden-nav.is-open { display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 15px 24px; max-height: calc(100svh - 110px); overflow: auto; }
+  .garden-nav > a, .nav-dropdown > summary, html[data-lang="en"] .garden-nav > a, html[data-lang="en"] .nav-dropdown > summary { height: auto; min-width: 0; align-items: center; flex-direction: row; justify-content: flex-start; padding: 11px 9px; }
+  .garden-nav > a > .lang-zh, .nav-dropdown > summary > .lang-zh { writing-mode: horizontal-tb; letter-spacing: .15em; font-size: 16px; }
+  .garden-nav > a[aria-current]::before, .nav-dropdown[data-current] > summary::before { display: none; }
+  .nav-chevron { position: static; margin-left: auto; }
+  .nav-submenu { position: static; box-shadow: none; border: 0; border-left: 1px solid var(--line); padding: 0 0 0 20px; margin: 5px 0 10px 9px; min-width: 0; }
+  .nav-submenu::before { display: none; }
+  .nav-submenu a { padding-block: 9px; font-size: 14px; }
+  .no-js .header-inner { align-items: flex-start; }
+  .no-js .header-right { width: 100%; }
+  .no-js .garden-nav { flex-wrap: wrap; gap: 8px 12px; width: 100%; align-items: flex-start; }
+  .garden-room { margin-block: 19px 27px; grid-template-columns: 1fr; padding-block: 37px 16px; min-height: 0; }
+  .book-running-title { left: 16px; right: 16px; font-size: 8px; letter-spacing: .16em; }
+  .room-intro { padding: 19px 25px 0; }
+  .room-title #hero-name { font-size: 36px; }
+  .room-title > p { margin-top: 8px; font-size: 11px; }
+  .room-personal { margin-top: 16px; gap: 5px 12px; }
+  .room-intro .hero-poem { margin-top: 29px; }
+  .room-landscape { min-height: 137px; margin: 17px -18px 0; }
+  .room-landscape > img:first-child { bottom: -12px; }
+  .room-moon { width: 60px; bottom: 63px; left: 55%; }
+  .room-intro .hero-poem blockquote { font-size: 24px; line-height: 1.85; letter-spacing: .025em; }
+  .hero-poem[lang="en"] blockquote { font-size: 18px; line-height: 1.75; }
+  .hero-poem figcaption { font-size: 10px; gap: 5px; }
+  .hero-poem .poem-line { display: none; }
+  .room-bio { font-size: 14px; }
+  .room-journal { margin: 0 18px; border-left: 0; border-top: 3px double var(--line); padding: 23px 7px 18px; }
+  .room-journal::before { display: none; }
+  .recent-heading { padding-bottom: 16px; min-height: 63px; }
+  .recent-heading h2 { font-size: 30px; }
+  .room-journal .journal-entry h3 { font-size: 20px; }
+  .entry-excerpt { font-size: 14px; }
+  .journal-end { padding-top: 27px; }
+  .interior-shell { padding: 27px 23px 40px; margin-block: 19px 27px; }
+  .page-heading { gap: 18px; min-height: 145px; padding-bottom: 25px; margin-bottom: 26px; }
+  .page-heading h1 { font-size: 34px; }
+  .page-intro { font-size: 13px; letter-spacing: .03em; }
+  .page-heading::after { width: 60%; background-size: 210px; opacity: .1; }
+  .page-heading-ornament { padding-inline: 4px; font-size: 9px; }
+  .blog-index { gap: 13px 20px; font-size: 13px; }
+  .entry-count { font-size: 10px; }
+  .empty-garden { background-size: 480px; }
+  .profile-page { grid-template-columns: 1fr; gap: 27px; }
+  .profile-contact { border-left: 0; border-top: 3px double var(--line); padding: 27px 0 0; }
+  .contact-address > a { font-size: 19px; }
+  .reading-page { width: calc(100% - 32px); padding: 26px 23px 40px; margin-block: 19px 27px; }
+  .reading-header h1 { font-size: 28px; }
+  .reading-body { font-size: 17px; }
+  .cv-section { gap: 15px; }
+  .footer-inner { padding-inline: 5px; grid-template-columns: 1fr auto; }
+  .footer-colophon p { font-size: 10px; }
+  .footer-bottom { font-size: 9px; }
+  .garden-gate { min-height: max(730px, 100svh); }
+  .gate-header { left: 28px; right: 28px; top: 22px; }
+  .gate-brand { font-size: 11px; }
+  .gate-frame { inset: 82px 16px 65px; }
+  .gate-frame::before { inset: 5px; }
+  .gate-frame::after { left: 15px; width: 5px; }
+  .gate-inscription { top: 132px; left: 54px; gap: 12px; }
+  .gate-inscription > span { font-size: 33px; padding: 15px 4px 5px; }
+  .gate-inscription small { font-size: 10px; letter-spacing: .28em; }
+  .gate-side-note { right: 42px; bottom: 17%; font-size: 10px; letter-spacing: .22em; }
+  .gate-center { width: 74%; padding-top: max(285px, 34svh); margin-left: 23%; }
+  .moon-door { width: clamp(195px, 53vw, 300px); }
+  .moon-door-label { font-size: 21px; }
+  .gate-invitation { font-size: 10px; margin-top: 17px; letter-spacing: .06em; }
+  .gate-branch { top: 80px; width: 305px; right: -52px; opacity: .45; }
+  .gate-landscape { width: 940px; left: -290px; bottom: 36px; opacity: .65; }
+  .gate-leaf { left: 23%; bottom: 24%; width: 17px; }
+  .gate-footer { left: 28px; right: 28px; bottom: 24px; font-size: 8px; letter-spacing: .02em; }
+}
+@media (max-width: 360px) {
+  .signature-title { font-size: 20px; }
+  .header-right { gap: 9px; }
+  .room-intro { padding-inline: 17px; }
+  .room-intro .hero-poem blockquote { font-size: 22px; }
+}
+@media (max-height: 760px) and (min-width: 761px) {
+  .garden-gate { min-height: 700px; }
+  .gate-center { padding-top: 155px; }
+  .moon-door { width: 320px; }
+}
+
+/* Ink, light and wind respond only to a precise pointer. */
+.ink-ripple { position: fixed; z-index: 40; width: 45px; height: 43px; border-radius: 46% 54% 58% 42%; pointer-events: none; background: radial-gradient(ellipse, var(--accent) 0, transparent 69%); animation: ink-dissolve 1s ease-out forwards; }
+@keyframes ink-dissolve { from { opacity: .24; transform: translate(-50%, -50%) scale(.2); } to { opacity: 0; transform: translate(-50%, -50%) scale(2.5); } }
+.journal-entry h3 a { width: fit-content; max-width: 100%; text-decoration-thickness: 1px; text-decoration-color: var(--accent); text-underline-offset: 7px; }
+.journal-entry h3 a:hover, .journal-entry h3 a:focus-visible { text-decoration-line: underline; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .gate-landscape, .room-landscape > img:first-child { transform: translate(var(--scene-x, 0px), var(--scene-y, 0px)); transition: transform .7s ease-out; }
+  .gate-branch { transform: translate(calc(var(--scene-x, 0px) * -1.4), calc(var(--scene-y, 0px) * -.6)); transition: transform .9s ease-out; }
+  .moon-door::after { content: ""; position: absolute; inset: 7%; border-radius: 50%; pointer-events: none; background: radial-gradient(circle at var(--light-x, 50%) var(--light-y, 50%), #fffae652, transparent 65%); opacity: .65; transition: opacity .4s; }
+  .moon-door:hover::after { opacity: 1; }
+  .journal-entry::before { content: ""; position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: var(--accent); opacity: .6; transform: scaleX(0); transform-origin: left; transition: transform .45s ease-out; clip-path: polygon(0 20%, 94% 0, 100% 65%, 8% 100%); }
+  .journal-entry:hover::before, .journal-entry:focus-within::before { transform: scaleX(1); }
+  .entry-arrow { transition: transform .35s; }
+  .journal-entry:hover .entry-arrow { transform: translate(3px, -2px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .ink-ripple { display: none; }
+}

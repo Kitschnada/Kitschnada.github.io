@@ -1,0 +1,4 @@
+{% assign paper = include.item %}
+{% if paper.paperurl %}<a class="text-link" href="{{ paper.paperurl }}">{% include garden-text.html zh="阅读论文" en="Read paper" %} ↗</a>{% endif %}
+{% if paper.slidesurl %}<a class="text-link" href="{{ paper.slidesurl }}">{% include garden-text.html zh="幻灯片" en="Slides" %} ↗</a>{% endif %}
+{% if paper.bibtexurl %}<a class="text-link" href="{{ paper.bibtexurl }}">BibTeX ↗</a>{% endif %}

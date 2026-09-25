@@ -21,7 +21,7 @@
   {% assign me = site.author.name | downcase | strip | replace: " ", "" | replace: ".", "" %}
 
   <p class="{{ author_class }}">
-    <span class="meta-label">{{ author_label }}</span>
+    <span class="meta-label">{% if include.label %}{{ author_label }}{% else %}{% include garden-text.html zh="作者：" en="Authors:" %}{% endif %}</span>
     {% assign rendered = 0 %}
     {% for author in author_list %}
       {% assign author_clean = author | strip %}

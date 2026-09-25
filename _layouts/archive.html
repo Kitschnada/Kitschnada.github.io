@@ -1,32 +1,7 @@
 ---
 layout: default
 ---
-
-{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
-  {% include page__hero.html %}
-{% endif %}
-
-{% if page.url != "/" and site.breadcrumbs %}
-  {% unless paginator %}
-    {% include breadcrumbs.html %}
-  {% endunless %}
-{% endif %}
-
-<div id="main" role="main">
-  {% include sidebar.html %}
-
-  {% assign archive_slug = page.permalink | default: page.url | replace: '/', ' ' | strip | replace: ' ', '-' | replace: '.html', '' %}
-  {% if archive_slug == '' %}
-    {% assign archive_slug = 'page' %}
-  {% endif %}
-  <div class="archive archive-shell archive-shell--{{ archive_slug }}">
-    {% unless page.header.overlay_color or page.header.overlay_image %}
-      <header class="archive-shell__header">
-        <h1 class="page__title">{{ page.title }}</h1>
-      </header>
-    {% endunless %}
-    <div class="archive-shell__content">
-      {{ content }}
-    </div>
-  </div>
+<div class="site-shell interior-shell">
+  {% include garden-heading.html %}
+  <div class="archive-content">{{ content }}</div>
 </div>

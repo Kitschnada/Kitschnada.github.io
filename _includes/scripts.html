@@ -1,17 +1,6 @@
-<script>
-  (function () {
-    var accent = "cool";
-    try {
-      accent = window.localStorage && window.localStorage.getItem("home_accent") === "1" ? "warm" : "cool";
-    } catch (error) {
-      accent = "cool";
-    }
-    document.documentElement.setAttribute("data-accent", accent);
-  })();
-</script>
-<script src="{{ base_path }}/assets/js/main.min.js"></script>
-{% if page.url == "/" %}
-<script defer src="{{ base_path }}/assets/js/home-ui.js"></script>
+<script defer src="{{ '/assets/js/garden.js' | relative_url }}"></script>
+{% if page.layout == 'single' or page.layout == 'talk' or page.math %}
+<script>window.MathJax = { tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']} };</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 {% endif %}
-
 {% include analytics.html %}

@@ -1,0 +1,6 @@
+{% assign first_poem = nil %}{% for candidate in site.data.poems %}{% assign candidate_text = candidate.text | strip %}{% if candidate_text != '' %}{% assign first_poem = candidate %}{% break %}{% endif %}{% endfor %}
+<figure class="hero-poem" id="hero-poem"{% unless first_poem %} hidden{% endunless %} lang="{{ first_poem.lang | default: 'zh-CN' }}">
+  <blockquote id="poem-text">{{ first_poem.text | escape | strip }}</blockquote>
+  <figcaption><span class="poem-line" aria-hidden="true"></span><span id="poem-author">{{ first_poem.author | escape }}</span><cite id="poem-title">{{ first_poem.title | escape }}</cite></figcaption>
+</figure>
+<script type="application/json" id="poem-library">[{% for poem in site.data.poems %}{"text":{{ poem.text | jsonify | replace: '<', '\u003c' }},"author":{{ poem.author | jsonify | replace: '<', '\u003c' }},"title":{{ poem.title | jsonify | replace: '<', '\u003c' }},"lang":{{ poem.lang | jsonify | replace: '<', '\u003c' }}}{% unless forloop.last %},{% endunless %}{% endfor %}]</script>

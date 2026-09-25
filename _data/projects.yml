@@ -1,0 +1,7 @@
+- title: 融媒体中心管理系统
+  title_en: Media Center Management System
+  description: 为东南大学吴健雄学院设计的统一工单系统，结合 QQ Bot，让日常协作更有条理。
+  description_en: A unified work-order system for the Chien-Shiung Wu College media center, with QQ Bot integration for everyday collaboration.
+  category: Web · Engineering
+  tags: [Flask, QQ Bot, Data]
+  url: https://liumuqing.pythonanywhere.com

@@ -1,0 +1,18 @@
+{% if page.channel == 'life' %}
+  {% assign blog_entries = site.posts | where_exp: 'entry', "entry.channel != 'academic'" %}
+{% elsif page.channel == 'academic' %}
+  {% assign academic_posts = site.posts | where: 'channel', 'academic' %}{% assign blog_entries = academic_posts | concat: site.publications %}
+{% elsif page.channel == 'study' %}
+  {% assign blog_entries = site.teaching %}
+{% elsif page.channel == 'sharing' %}
+  {% assign blog_entries = site.talks %}
+{% else %}
+  {% assign blog_entries = site.posts | concat: site.publications | concat: site.teaching | concat: site.talks %}
+{% endif %}
+{% assign blog_entries = blog_entries | sort: 'date' | reverse %}
+<nav class="blog-index" aria-label="近笺分类 / Journal categories">
+  {% assign journal_navigation = site.data.navigation.main | where: 'url', '/blogs/' | first %}
+  {% for child in journal_navigation.children %}<a href="{{ child.url | relative_url }}"{% if page.url == child.url %} aria-current="page"{% endif %}>{% include garden-text.html zh=child.title en=child.title_en %}</a>{% endfor %}
+  <span class="entry-count">{{ blog_entries.size }} {% include garden-text.html zh="篇" en="entries" %}</span>
+</nav>
+<div class="blog-list" id="{% if page.channel %}{{ page.channel }}{% else %}all-entries{% endif %}">{% for entry in blog_entries %}{% include garden-entry.html entry=entry %}{% else %}{% include garden-empty.html %}{% endfor %}</div>

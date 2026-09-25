@@ -1,0 +1,11 @@
+{% assign entry = include.entry %}
+<article class="journal-entry"{% if entry.lang %} lang="{{ entry.lang }}"{% endif %}>
+  <div class="entry-meta">
+    {% if entry.date %}<time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%Y.%m.%d" }}</time>{% endif %}
+    {% if entry.collection == "publications" %}<span>{% include garden-text.html zh="论文" en="Paper" %}{% if entry.venue %} · {{ entry.venue }}{% endif %}</span>{% endif %}
+    {% if entry.tags.size > 0 %}<span>{{ entry.tags | first }}</span>{% endif %}
+  </div>
+  <h3><a href="{{ entry.url | relative_url }}">{{ entry.title }}<span class="entry-arrow" aria-hidden="true">↗</span></a></h3>
+  {% if entry.excerpt %}<p class="entry-excerpt">{{ entry.excerpt | strip_html | truncate: 170 }}</p>{% endif %}
+  {% if include.authors and entry.authors %}{% include publication-authors.html authors=entry.authors %}{% endif %}
+</article>

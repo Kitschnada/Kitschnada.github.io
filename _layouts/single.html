@@ -1,110 +1,23 @@
 ---
 layout: default
 ---
-
-{% include base_path %}
-
-{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
-  {% include page__hero.html %}
-{% endif %}
-
-{% if page.url != "/" and site.breadcrumbs %}
-  {% unless paginator %}
-    {% include breadcrumbs.html %}
-  {% endunless %}
-{% endif %}
-
-<div id="main" role="main">
-  {% include sidebar.html %}
-
-  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: "%B %d, %Y" }}">{% endif %}
-    {% if page.modified %}<meta itemprop="dateModified" content="{{ page.modified | date: "%B %d, %Y" }}">{% endif %}
-
-    <div class="page__inner-wrap">
-      {% unless page.header.overlay_color or page.header.overlay_image %}
-        <header>
-          {% if page.title %}<h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
-          {% if page.read_time %}
-            <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
-          {% endif %}
-        {% if page.modified %}
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time></p>
-        {% endif %}
-        
-        {% if page.collection == 'teaching' %}
-          <p class="archive__meta"> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
-        {% elsif page.venue and page.date %}
-          <p class="archive__meta">Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
-          {% include publication-authors.html authors=page.authors class="archive__meta archive__meta--authors page__meta-authors" %}
-        {% elsif page.date %}
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
-        {% endif %}    
-        </header>
-      {% endunless %}
-
-      <section class="page__content" itemprop="text">
-        {{ content }}
-
-        {% if page.citation and page.paperurl and page.slidesurl and page.bibtexurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.slidesurl }}">Download Slides</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
-        {% elsif page.citation and page.paperurl and page.slidesurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.slidesurl }}">Download Slides</a></p>
-        {% elsif page.citation and page.paperurl and page.bibtexurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
-        {% elsif page.citation and page.paperurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a></p>
-        {% elsif page.citation and page.slidesurl and page.bibtexurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.slidesurl }}">Download Slides</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
-        {% elsif page.citation and page.slidesurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.slidesurl }}">Download Slides</a></p>
-        {% elsif page.slidesurl and page.bibtexurl %}
-          <p style="font-size: smaller"><a href="{{ page.slidesurl }}">Download Slides</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
-        {% elsif page.paperurl and page.bibtexurl %}
-          <p style="font-size: smaller"><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
-        {% elsif page.citation and page.bibtexurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
-        {% elsif page.citation %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}</p>
-        {% elsif page.slidesurl %}
-          <p style="font-size: smaller"><a href="{{ page.slidesurl }}">Download Slides</a></p>
-        {% elsif page.bibtexurl %}
-          <p style="font-size: smaller"><a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
-        {% endif %}
-
-        {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
-      </section>
-
-      <footer class="page__meta">
-        {% if site.data.ui-text[site.locale].meta_label %}
-          <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
-        {% endif %}
-        {% include page__taxonomy.html %}
-      </footer>
-
-      {% if page.share %}{% include social-share.html %}{% endif %}
-
-      {% include post_pagination.html %}
-    </div>
-
-    {% if site.comments.provider and page.comments %}
-      {% include comments.html %}
-    {% endif %}
-  </article>
-
-  {% comment %}<!-- only show related on a post page when not disabled -->{% endcomment %}
-  {% if page.id and page.related and site.related_posts.size > 0 %}
-    <div class="page__related">
-      {% if site.data.ui-text[site.locale].related_label %}
-        <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h4>
-      {% endif %}
-      <div class="grid__wrapper">
-        {% for post in site.related_posts limit:4 %}
-          {% include archive-single.html type="grid" %}
-        {% endfor %}
-      </div>
-    </div>
-  {% endif %}
-</div>
+<article class="reading-page" itemscope itemtype="https://schema.org/CreativeWork">
+  <header class="reading-header">
+    <a class="text-link reading-back" href="{{ '/blogs/' | relative_url }}">← {% include garden-text.html zh="近笺" en="Journal" %}</a>
+    <p class="eyebrow">{% if page.collection == "publications" %}Academic / Research paper{% elsif page.channel == "academic" %}Academic / Notes{% elsif page.collection == "teaching" %}Journal / Study{% elsif page.collection == "talks" %}Journal / Sharing{% elsif page.collection == "posts" %}Life / Journal{% else %}A page from the garden{% endif %}</p>
+    {% assign heading = site.data.page_titles[page.url] %}
+    <h1 itemprop="headline">{% if heading %}{% include garden-text.html zh=heading.zh en=heading.en %}{% else %}{{ page.title }}{% endif %}</h1>
+    <div class="entry-meta">{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%Y.%m.%d" }}</time>{% endif %}{% if page.venue %}<span>{{ page.venue }}</span>{% endif %}{% if page.read_time %}<span>{% assign minutes = content | strip_html | number_of_words | divided_by: 160 | plus: 1 %}{{ minutes }} {% include garden-text.html zh="分钟阅读" en="min read" %}</span>{% endif %}</div>
+    {% if page.authors %}{% include publication-authors.html authors=page.authors %}{% endif %}
+    {% if page.talk_type %}<p>{{ page.talk_type }}{% if page.location %} · {{ page.location }}{% endif %}</p>{% endif %}
+    {% if page.collection == "publications" %}<div class="paper-links">{% include garden-paper-links.html item=page %}</div>{% endif %}
+  </header>
+  <div class="reading-body prose" lang="{{ page.lang | default: 'zh-CN' }}" itemprop="text">
+    {{ content }}
+    {% if page.citation %}<blockquote class="citation">{{ page.citation }}</blockquote>{% endif %}
+    {% if page.link %}<p><a class="text-link" href="{{ page.link }}">{% include garden-text.html zh="访问相关链接" en="Visit related link" %} ↗</a></p>{% endif %}
+  </div>
+  {% if page.tags.size > 0 %}<ul class="article-tags" aria-label="Tags">{% for tag in page.tags %}<li><a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a></li>{% endfor %}</ul>{% endif %}
+  {% include post_pagination.html %}
+  {% if site.comments.provider and page.comments %}{% include comments.html %}{% endif %}
+</article>

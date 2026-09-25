@@ -13,9 +13,12 @@ const ROOT_FIELDS = ["title", "name", "description", "url", "baseurl", "locale"]
 const AUTHOR_FIELDS = [
   "avatar",
   "name",
+  "name_zh",
   "bio",
+  "bio_zh",
   "location",
   "employer",
+  "employer_zh",
   "uri",
   "email",
   "googlescholar",

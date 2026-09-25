@@ -1,0 +1,14 @@
+"/blogs/": {zh: 近笺, en: Journal, note: 浮生片羽，拾得数行。, note_en: "Fragments of passing days, gathered into a few lines."}
+"/blogs/life/": {zh: 生活, en: Life, note: 一茶一饭，皆可入笺。, note_en: "A cup of tea, a simple meal—each has a place upon the page."}
+"/blogs/academic/": {zh: 学术, en: Academic, note: 循理探微，问学无涯。, note_en: "Following reason into the subtle; learning has no shore."}
+"/blogs/study/": {zh: 学习, en: Study notes, note: 展卷有得，随手录之。, note_en: "What an open book reveals, a quiet hand records."}
+"/blogs/sharing/": {zh: 分享, en: Sharing, note: 偶有所得，愿与君言。, note_en: "A thought found along the way, offered in conversation."}
+"/publications/": {zh: 论文, en: Publications, note: 穷理研思，著而成篇。, note_en: "An inquiry pursued, a thought entrusted to the page."}
+"/portfolio/": {zh: 作品, en: Works, note: 心有所寄，遂作此物。, note_en: "A thought seeks a dwelling, and takes its form here."}
+"/cv/": {zh: 履历, en: Curriculum vitae, note: 记来时行履，待未竟山川。, note_en: "Footsteps kept from the road behind; hills still waiting ahead."}
+"/profile/": {zh: 关于, en: About, note: 寄身天地间，留字与君识。, note_en: "A life beneath this sky, a few words by which to know it."}
+"/tags/": {zh: 标签, en: Tags, note: 拈字为引，循迹寻章。, note_en: "A word as a thread, leading from page to page."}
+"/categories/": {zh: 分类, en: Categories, note: 分笺别类，各有所归。, note_en: "Each page gathered with its kin."}
+"/page-archive/": {zh: 页面, en: Pages, note: 旧笺新墨，俱存于此。, note_en: "Old pages and fresh ink, kept together here."}
+"/collection-archive/": {zh: 归档, en: Collections, note: 岁月散落，拾而藏之。, note_en: "What the years let fall, these pages keep."}
+"/404.html": {zh: 此间无径, en: A path not found, note: 苔深不见履，云起已迷津。, note_en: "Moss conceals the footsteps; cloud has hidden the crossing."}

@@ -1,0 +1,9 @@
+{% assign heading = site.data.page_titles[page.url] %}
+<header class="page-heading">
+  <div class="page-heading-ornament" aria-hidden="true"><span>月下庭院</span><span class="fish-tail"></span><span>一卷清言</span></div>
+  <div class="page-heading-copy">
+  <p class="eyebrow lang-en">{{ heading.en | default: page.collection | default: "A page from the garden" }}</p>
+  <h1>{% if heading %}{% include garden-text.html zh=heading.zh en=heading.en %}{% else %}{{ page.title }}{% endif %}</h1>
+  {% if heading.note %}<p class="page-intro">{% include garden-text.html zh=heading.note en=heading.note_en %}</p>{% endif %}
+  </div>
+</header>

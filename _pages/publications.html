@@ -1,43 +1,10 @@
 ---
 layout: archive
-title: "Publications"
+title: Publications
 permalink: /publications/
-author_profile: true
 ---
-
-<div class="archive-intro-card">
-  <p class="archive-kicker">Research Output</p>
-  <p>这里汇总了我的论文与学术成果，按类别分组展示，便于快速浏览与跳转。</p>
-  {% if site.author.googlescholar and site.author.googlescholar != '-' %}
-  <p class="archive-meta-link">Google Scholar: <a href="{{ site.author.googlescholar }}">Profile</a></p>
-  {% endif %}
-</div>
-
-{% include base_path %}
-
-<div class="archive-topic-stack">
-{% if site.publication_category %}
-  {% for category in site.publication_category %}
-    {% assign posts = site.publications | where: "category", category[0] | reverse %}
-    {% if posts.size > 0 %}
-    <section class="archive-topic-section">
-      <h2 class="archive-topic-title">{{ category[1].title }}</h2>
-      <div class="archive-topic-grid">
-        {% for post in posts %}
-          {% include archive-single.html %}
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
-  {% endfor %}
-{% else %}
-  <section class="archive-topic-section">
-    <h2 class="archive-topic-title">All Publications</h2>
-    <div class="archive-topic-grid">
-      {% for post in site.publications reversed %}
-        {% include archive-single.html %}
-      {% endfor %}
-    </div>
-  </section>
-{% endif %}
-</div>
+<div class="archive-intro">{% if site.author.googlescholar %}<a class="text-link" href="{{ site.author.googlescholar }}">Google Scholar ↗</a>{% endif %}<a class="text-link" href="{{ '/blogs/academic/' | relative_url }}">{% include garden-text.html zh="学术笺记" en="Academic notes" %} ↗</a></div>
+{% for entry in site.publications reversed %}
+  {% include garden-entry.html entry=entry authors=true %}
+  <div class="paper-links">{% include garden-paper-links.html item=entry %}</div>
+{% else %}{% include garden-empty.html %}{% endfor %}

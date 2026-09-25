@@ -7,12 +7,12 @@
 # server process.
 
 # Basic Site Settings
-locale: "en-US"
+locale: "zh-CN"
 site_theme: "default"
 title: "Liu Muqing's Homepage"
 title_separator: "-"
 name: "Liu Muqing"
-description: "personal description"
+description: "刘穆清的个人庭院：生活、阅读、研究与所思。"
 url: "https://kitschnada.github.io" # the base hostname & protocol for your site e.g. "https://liumq.github.io"
 baseurl: "" # the subpath of your site, e.g. "/blog"
 repository: "kitschnada.github.io"
@@ -24,18 +24,21 @@ author:
   # Biographic information
   avatar: "profile.png"
   name: "Liu Muqing"
-  bio: "An undergraduate student studying AI who loves literature, movies, and all explainable questions."
+  name_zh: "刘穆清"
+  bio: "AI Researcher and Literature Enthusiast."
+  bio_zh: "人工智能研究者，文艺爱好者。"
   location: "Computer Science"
   employer: "Southeast University"
+  employer_zh: "东南大学"
   uri: # URL
-  email: "213231385@seu.edu.cn"
+  email: "liumq04@163.com"
 
   # Academic websites
   arxiv: # URL - Update with the correct link to your profile
   googlescholar: "https://scholar.google.com/citations?view_op=list_works&user=O716Jb4AAAAJ"
-  impactstory: # URL
-  orcid: # URL
-  semantic: # URL
+  openreview: "https://openreview.net/profile?id=%7EMuqing_Liu1"
+  orcid: "https://orcid.org/0009-0006-0651-846X"
+  dblp: "https://dblp.org/pid/202/4212-2.html"
   pubmed: # URL
   researchgate: # URL
   scopus: # URL
@@ -116,9 +119,6 @@ staticman:
       type: "date"
       options:
         format: "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
-atom_feed:
-  hide: false # change to true to hide the RSS feed in the footer
-  path: # blank (default) uses feed.xml
 
 # SEO Related
 google_site_verification:
@@ -174,6 +174,11 @@ exclude:
   - local
   - log
   - node_modules
+  - tools
+  - scripts
+  - docs
+  - tests
+  - .profile-editor-backups
   - package.json*
   - Rakefile
   - README
@@ -287,7 +292,6 @@ timezone: Etc/UTC # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Plugins
 plugins:
-  - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
   - jekyll-sitemap
@@ -296,7 +300,6 @@ plugins:
 
 # Mimic GitHub Pages with --safe
 whitelist:
-  - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
   - jekyll-sitemap

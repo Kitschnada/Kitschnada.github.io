@@ -1,0 +1,16 @@
+<div class="works-list">
+{% for project in site.data.projects %}
+  <article class="work-entry">
+    <span class="work-number" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+    <div class="work-copy">
+      <p class="eyebrow">{{ project.category }}</p>
+      <h3><a href="{{ project.url }}">{% include garden-text.html zh=project.title en=project.title_en %}<span class="entry-arrow" aria-hidden="true">↗</span></a></h3>
+      <p>{% include garden-text.html zh=project.description en=project.description_en %}</p>
+      <ul class="work-tags" aria-label="Technologies">{% for tag in project.tags %}<li>{{ tag }}</li>{% endfor %}</ul>
+    </div>
+    <div class="work-sketch" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
+  </article>
+{% endfor %}
+{% for entry in site.portfolio %}{% include garden-entry.html entry=entry %}{% endfor %}
+{% if site.data.projects.size == 0 and site.portfolio.size == 0 %}{% include garden-empty.html %}{% endif %}
+</div>

@@ -1,26 +1,20 @@
-{% include base_path %}
-
-<div class="masthead">
-  <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
-        <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="{{ base_path }}/">{{ site.title }}</a></li>
-          {% for link in site.data.navigation.main %}
-            {% if link.url contains 'http' %}
-              {% assign domain = '' %}
-            {% else %}
-              {% assign domain = base_path %}
-            {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-          <li id="theme-toggle" class="masthead__menu-item persist tail">
-            <a><i id="theme-icon" class="fas fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
-          </li>
-        </ul>
-        <ul class="hidden-links hidden"></ul>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-signature" href="{{ '/home/' | relative_url }}" aria-label="{{ site.author.name }} · Home"><span class="signature-title">{% include garden-text.html zh="月下庭院" en="A moonlit garden" %}</span><span class="signature-owner">{% include garden-text.html zh=site.author.name_zh en=site.author.name %}<small>{% include garden-text.html zh="日常与所思" en="Notes & reflections" %}</small></span></a>
+    <div class="header-right">
+      <button class="menu-toggle js-only" type="button" aria-controls="garden-nav" aria-expanded="false">{% include garden-text.html zh="导航" en="Menu" %}<span class="menu-lines" aria-hidden="true"></span></button>
+      <nav id="garden-nav" class="garden-nav" aria-label="主导航">
+        {% for link in site.data.navigation.main %}
+        {% assign current = false %}{% if page.url == link.url %}{% assign current = true %}{% endif %}{% if link.url == '/blogs/' %}{% if page.collection == 'posts' or page.collection == 'publications' or page.collection == 'teaching' or page.collection == 'talks' or page.url contains '/blogs/' or page.url == '/publications/' %}{% assign current = true %}{% endif %}{% endif %}
+        {% if link.children %}
+        <details class="nav-dropdown"{% if current %} data-current="true"{% endif %}>
+          <summary>{% include garden-text.html zh=link.title en=link.title_en %}<span class="nav-chevron" aria-hidden="true">⌄</span></summary>
+          <div class="nav-submenu">{% for child in link.children %}<a href="{{ child.url | relative_url }}"{% if page.url == child.url %} aria-current="page"{% endif %}>{% include garden-text.html zh=child.title en=child.title_en %}</a>{% endfor %}</div>
+        </details>
+        {% else %}<a href="{{ link.url | relative_url }}"{% if current %} aria-current="page"{% endif %}>{% include garden-text.html zh=link.title en=link.title_en %}</a>{% endif %}
+        {% endfor %}
       </nav>
+      {% include garden-controls.html %}
     </div>
   </div>
-</div>
+</header>

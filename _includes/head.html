@@ -1,21 +1,21 @@
-{% include base_path %}
-
 <meta charset="utf-8">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 {% include seo.html %}
-
-<link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
-
-<!-- http://t.co/dKP3o1e -->
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="theme-color" content="#f3efe6" id="theme-color">
 <script>
-  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+(function () {
+  var root = document.documentElement;
+  root.className = 'js';
+  var theme = 'light', lang = 'zh';
+  try {
+    if (localStorage.getItem('theme') === 'dark') theme = 'dark';
+    if (localStorage.getItem('home_lang') === 'en') lang = 'en';
+  } catch (_) {}
+  root.dataset.theme = theme;
+  root.dataset.lang = lang;
+  root.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  document.querySelector('#theme-color').content = theme === 'dark' ? '#101b2c' : '#f3efe6';
+})();
 </script>
-
-<!-- For all browsers -->
-<link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
-
-<meta http-equiv="cleartype" content="on">
+<link rel="stylesheet" href="{{ '/assets/fonts/garden/fonts.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">

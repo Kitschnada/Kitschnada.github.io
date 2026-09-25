@@ -1,0 +1,136 @@
+# 每次打开首页随机抽取一条；text 可用 | 换行；source 为可选出处。
+# 中国古典诗词：取六朝山水、唐人幽居与宋人清词，偏清寂、惜别与秋意。
+- text: |
+    夜雨滴空阶，
+    晓灯暗离室。
+  author: 何逊
+  title: 临行与故游夜别
+  source: https://www.cidianwang.com/lishi/diangu/8/32378du.htm
+- text: |
+    天际识归舟，
+    云中辨江树。
+  author: 谢朓
+  title: 之宣城郡出新林浦向板桥
+  source: https://www.cidianwang.com/lishi/diangu/4/19444rx.htm
+- text: |
+    泊处空余鸟，
+    离亭已散人。
+  author: 阴铿
+  title: 江津送刘光禄不及
+  source: https://www.shiwens.cn/details_26704.html
+- text: |
+    茅亭宿花影，
+    药院滋苔纹。
+  author: 常建
+  title: 宿王昌龄隐居
+  source: https://www.shidianguji.com/book/SK3298/chapter/1l9hiarebz0hg
+- text: |
+    独行潭底影，
+    数息树边身。
+  author: 贾岛
+  title: 送无可上人
+  source: https://www.shiciju.cn/mingju/16527.html
+- text: |
+    树头蜂抱花须落，
+    池面鱼吹柳絮行。
+  author: 韩偓
+  title: 残春旅舍
+  source: https://m.gushiwen.cn/shiwenv_9fe2b0c872cb.aspx
+- text: |
+    此夜芭蕉雨，
+    何人枕上闻。
+  author: 林逋
+  title: 宿洞霄宫
+  source: https://www.guwendao.net/shiwenv_3eef44bfcae9.aspx
+- text: |
+    野凫眠岸有闲意，
+    老树著花无丑枝。
+  author: 梅尧臣
+  title: 东溪
+  source: https://www.zdic.net/hans/野凫
+- text: |
+    燕子经年梦，
+    梧桐昨暮非。
+  author: 陈与义
+  title: 雨
+  source: https://www.guwendao.net/shiwenv_c7de71c5980c.aspx
+- text: |
+    庭户无人秋月明，
+    夜霜欲落气先清。
+  author: 张耒
+  title: 夜坐
+  source: https://m.gushiwen.cn/shiwenv_5f1aa916c2fb.aspx
+- text: |
+    一鸟过寒木，
+    数花摇翠藤。
+  author: 赵师秀
+  title: 岩居僧
+  source: https://m.gushiwen.cn/shiwenv_904045280437.aspx
+- text: |
+    一天秋色冷晴湾，
+    无数峰峦远近间。
+  author: 翁卷
+  title: 野望
+  source: https://www.gushiwen.cn/mingju/juv.aspx?id=3b42f4c33f9a
+- text: |
+    无处写幽怀，
+    巡檐数修竹。
+  author: 葛天民
+  title: 春晚
+  source: https://www.shidianguji.com/book/SK3325/chapter/1kfn80jnestut
+- text: |
+    雁怯重云不肯啼，
+    画船愁过石塘西。
+  author: 姜夔
+  title: 浣溪沙·丙辰岁不尽五日吴松作
+  source: https://www.artype.cn/detail?id=8192
+- text: |
+    十年一梦凄凉。
+    似西湖燕去，吴馆巢荒。
+  author: 吴文英
+  title: 夜合花
+  source: https://m.pinshiwen.com/shishu/yanjiu/20200614272143.html
+- text: |
+    病翼惊秋，枯形阅世，
+    消得斜阳几度？
+  author: 王沂孙
+  title: 齐天乐·蝉
+  source: https://m.gushiwen.cn/mingju/juv_5149d89fe2ef.aspx
+- text: |
+    月落沙平江似练，
+    望尽芦花无雁。
+  author: 张炎
+  title: 清平乐·候蛩凄断
+  source: https://www.dugushici.com/mingju/12236
+
+# 日本汉诗
+- text: |
+    溪深水声远，
+    山高月色迟。
+  author: 日本·良宽
+  title: 秋夜偶作
+  source: https://entsuji-kurashiki.jp/ryoukan.html
+- text: |
+    去年今夜侍清凉，
+    秋思诗篇独断肠。
+  author: 日本·菅原道真
+  title: 九月十日
+  source: https://www5a.biglobe.ne.jp/~shici/jpn03.htm
+- text: |
+    雪拥山堂树影深，
+    檐铃不动夜沈沈。
+  author: 日本·菅茶山
+  title: 冬夜读书
+  source: https://nishogakusha.repo.nii.ac.jp/record/1456/files/KJ00005510685.pdf
+- text: |
+    唐诗读罢倚阑干，
+    午院沈沈绿意寒。
+  author: 日本·夏目漱石
+  title: 题自画
+  source: https://manapedia.jp/m/text/3824
+- text: |
+    帙散床头书，
+    雨打帘前梅。
+  author: 日本·良宽
+  title: 无题（对君君不语）
+  source: https://entsuji-kurashiki.jp/ryoukan.html

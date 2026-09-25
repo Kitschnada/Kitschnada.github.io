@@ -1,0 +1,11 @@
+---
+layout: archive
+title: About
+permalink: /profile/
+---
+{% assign display_name = site.author.name_zh | default: site.author.name %}
+<div class="profile-page">
+  <div class="profile-intro prose"><h2>{% include garden-text.html zh=display_name en=site.author.name %}</h2><p class="lang-zh" lang="zh-CN">{{ site.author.bio_zh | default: site.author.bio }}</p><p class="lang-en" lang="en">{{ site.author.bio }} I study at {{ site.author.employer }}.</p><p>{% include garden-text.html zh="闲时记所见，展卷记所得；数行薄墨，聊存此心。" en="What the days reveal and the books unfold, kept here in a few lines." %}</p>
+  <div class="about-links">{% if site.author.github %}{% assign github_url = site.author.github %}{% unless github_url contains '://' %}{% assign github_url = github_url | prepend: 'https://github.com/' %}{% endunless %}<a class="text-link" href="{{ github_url }}">GitHub ↗</a>{% endif %}{% if site.author.googlescholar %}<a class="text-link" href="{{ site.author.googlescholar }}">Google Scholar ↗</a>{% endif %}<a class="text-link" href="{{ '/cv/' | relative_url }}">{% include garden-text.html zh="简历" en="CV" %} ↗</a></div></div>
+  <section class="profile-contact" aria-labelledby="contact-heading"><span class="eyebrow">CORRESPONDENCE</span><h2 id="contact-heading">{% include garden-text.html zh="见字如晤" en="A note, a conversation" %}</h2><p>{% include garden-text.html zh="学问闲谈，片言皆可；尺素遥来，见字如晤。" en="A thought, a question, a word in passing—your letter is welcome." %}</p><div class="contact-address"><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a><button class="text-link js-only" type="button" data-copy="{{ site.author.email }}">{% include garden-text.html zh="复制邮箱" en="Copy email" %} ↗</button><span class="copy-status" role="status" aria-live="polite"></span></div></section>
+</div>
