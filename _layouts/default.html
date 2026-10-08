@@ -2,13 +2,14 @@
 layout: compress
 ---
 <!doctype html>
-<html lang="zh-CN" class="no-js" data-theme="light" data-lang="zh">
+<html lang="zh-CN" class="no-js" data-theme="dark" data-lang="zh">
   <head>{% include head.html %}{% include head/custom.html %}</head>
-  <body class="{% if page.entrance %}garden-entrance{% elsif page.url == '/home/' %}garden-home{% else %}garden-interior{% endif %}">
+  <body class="{% if page.homepage %}experience-home{% else %}experience-interior{% endif %}">
     <a class="skip-link" href="#main">{% include garden-text.html zh="跳至内容" en="Skip to content" %}</a>
-    {% unless page.entrance %}{% include masthead.html %}{% endunless %}
+    {% include masthead.html %}
     <main id="main">{{ content }}</main>
-    {% unless page.entrance %}{% include footer.html %}{% endunless %}
+    {% include footer.html %}
+    {% include quick-nav.html %}
     {% include scripts.html %}
   </body>
 </html>

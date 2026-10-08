@@ -4,6 +4,7 @@ title: CV
 permalink: /cv/
 redirect_from:
   - /resume
+  - /resume/
 ---
 <div class="cv-sheet">
   {% assign cv_name = site.author.name_zh | default: site.author.name %}{% assign cv_bio = site.author.bio_zh | default: site.author.bio %}{% assign cv_school = site.author.employer_zh | default: site.author.employer %}

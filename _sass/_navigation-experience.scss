@@ -1,0 +1,55 @@
+/* Navigation is attached to the actual sculpture; the top of the homepage stays open. */
+.ring-nav { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+.ring-part { --part-x: 50%; --part-y: 50%; position: absolute; left: var(--part-x); top: var(--part-y); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; width: 76px; height: 70px; padding: 8px 6px; border: 1px solid #e1d4ff45; border-radius: 19px; color: #f6f2ff; background: linear-gradient(140deg, #30243bdd, #0a0a10dd); box-shadow: inset 0 1px 0 #ffffff20, 0 8px 30px #0005; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); transform: translate(-50%, -50%) scale(.8); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .28s, transform .4s cubic-bezier(.16,1,.3,1), border-color .2s, background .2s, visibility .28s; }
+.ring-part[data-part="0"] { --part-x: 68%; --part-y: 24%; }
+.ring-part[data-part="1"] { --part-x: 79%; --part-y: 59%; }
+.ring-part[data-part="2"] { --part-x: 50%; --part-y: 78%; }
+.ring-part[data-part="3"] { --part-x: 20%; --part-y: 61%; }
+.ring-part[data-part="4"] { --part-x: 25%; --part-y: 24%; }
+[data-nav-open="true"] .ring-part, .no-js .ring-part { opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, -50%) scale(1); }
+.ring-part:hover, .ring-part:focus-visible { color: #fff; border-color: #dbd0ff; background: linear-gradient(140deg, #584768ed, #161320f2); box-shadow: inset 0 1px 0 #fff5, 0 0 30px #b494ff40; }
+.ring-part:focus-visible { outline: 2px solid #c5f4ff; outline-offset: 4px; }
+.ring-glyph { width: 23px; height: 23px; flex: 0 0 auto; }
+.ring-label { font-size: 10px; font-weight: 500; line-height: 1.35; letter-spacing: .04em; white-space: nowrap; }
+.ring-toggle { position: absolute; z-index: 6; left: 50%; top: 50%; width: 68px; height: 68px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; border-radius: 50%; border: 1px solid #dfcbff4d; background: #0b081144; color: #d9cdeb; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transform: translate(-50%, -50%); font-size: 10px; letter-spacing: .06em; box-shadow: 0 0 35px #a784ff12; transition: border-color .25s, background .25s, color .25s; }
+.ring-toggle svg { width: 21px; height: 21px; }
+.ring-toggle:hover, .ring-toggle:focus-visible { color: #fff; border-color: #e3d4ffb3; background: #171120aa; }
+.ring-toggle:focus-visible { outline: 2px solid #bff5ff; outline-offset: 6px; }
+[data-nav-open="true"] .ring-toggle { background: #08070ccc; border-color: #d4bdff30; }
+[data-nav-open="true"] .ring-toggle svg path { transform: rotate(45deg); transform-origin: 12px 12px; }
+.ring-toggle-label { line-height: 1.3; }
+.hero-bottom-bar .site-controls { justify-self: end; gap: 5px; color: #b4aabc; }
+.site-controls button { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; min-width: 44px; min-height: 44px; border-radius: 50%; color: inherit; background: transparent; }
+.site-controls button:hover, .site-controls button:focus-visible { color: #e9e0ff; background: #bda0ff12; }
+.control-tooltip { position: absolute; bottom: calc(100% + 8px); left: 50%; padding: 5px 9px; width: max-content; transform: translate(-50%, 4px); background: #17131e; border: 1px solid #d4b6ff30; border-radius: 7px; color: #ede5fa; font-size: 10px; line-height: 1.4; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .15s, transform .15s; }
+.site-controls button:hover .control-tooltip, .site-controls button:focus-visible .control-tooltip { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.global-nav-trigger { position: fixed; right: 26px; bottom: 26px; z-index: 45; display: grid; place-items: center; width: 52px; height: 52px; border: 1px solid #d6beff59; border-radius: 50%; color: #e9defa; background: #16121fef; box-shadow: 0 5px 30px #0004; }
+.global-nav-trigger svg { width: 23px; height: 23px; }
+.global-nav-trigger:hover { border-color: #e0cdff; background: #30253d; }
+.corner-navigation { position: fixed; top: 22px; right: 26px; z-index: 50; width: auto; height: auto; margin: 0; padding: 0; border: 0; background: none; box-shadow: none; }
+.corner-nav { position: relative; }
+.corner-toggle { width: 50px; height: 50px; display: grid; place-items: center; border: 1px solid #c8ade64d; border-radius: 50%; background: #14101e; color: #ede5fa; box-shadow: 0 4px 20px #0002; cursor: pointer; list-style: none; }
+.corner-toggle::-webkit-details-marker { display: none; }
+.corner-toggle svg { width: 23px; height: 23px; }
+.corner-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.corner-menu { width: 228px; position: absolute; top: 63px; right: 0; display: flex; flex-direction: column; padding: 10px; gap: 4px; border: 1px solid #c5a5ff38; border-radius: 22px; color: #e7e0f0; background: #100e17f5; box-shadow: 0 20px 70px #0005; max-height: calc(100dvh - 108px); overflow-y: auto; }
+.corner-link { display: flex; align-items: center; min-height: 47px; padding: 10px 14px; gap: 14px; border-radius: 13px; font-size: 13px; line-height: 1.4; }
+.corner-link svg { width: 21px; height: 21px; }
+.corner-link:hover, .corner-link:focus-visible, .corner-link[aria-current] { background: #c7a0ff13; color: #f6edff; }
+.corner-menu .site-controls { justify-content: center; border-top: 1px solid #d7bcff1c; padding-top: 8px; margin-top: 5px; gap: 12px; }
+.corner-menu .control-tooltip { display: none; }
+.experience-interior .interior-shell, .experience-interior .reading-page { padding-top: 104px; }
+@media (max-width: 950px) {
+  .ring-part { width: 70px; height: 66px; border-radius: 17px; }
+}
+@media (max-width: 760px) {
+  .ring-part { width: 62px; height: 60px; gap: 4px; padding: 7px 4px; border-radius: 15px; }
+  .ring-glyph { width: 21px; height: 21px; }.ring-label { font-size: 9px; }
+  .ring-toggle { width: 60px; height: 60px; font-size: 9px; }
+  .hero-bottom-bar .site-controls { grid-row: 2; gap: 2px; }.hero-bottom-bar .site-controls button { width: 40px; min-width: 40px; }
+  .corner-navigation { top: 16px; right: 18px; }.corner-toggle { width: 46px; height: 46px; }.corner-menu { top: 57px; max-height: calc(100dvh - 94px); }
+  .global-nav-trigger { right: 18px; bottom: 18px; width: 48px; height: 48px; }
+  .experience-interior .interior-shell, .experience-interior .reading-page { padding-top: 92px; }
+}
+@media (prefers-reduced-motion: reduce) { .ring-part, .ring-toggle { transition: none; } }
+@media print { .ring-nav, .ring-toggle, .corner-navigation, .global-nav-trigger { display: none; } }

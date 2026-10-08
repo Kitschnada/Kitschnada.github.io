@@ -3,7 +3,7 @@ layout: archive
 title: Publications
 permalink: /publications/
 ---
-<div class="archive-intro">{% if site.author.googlescholar %}<a class="text-link" href="{{ site.author.googlescholar }}">Google Scholar ↗</a>{% endif %}<a class="text-link" href="{{ '/blogs/academic/' | relative_url }}">{% include garden-text.html zh="学术笺记" en="Academic notes" %} ↗</a></div>
+<div class="archive-intro">{% if site.author.googlescholar %}<a class="text-link" href="{{ site.author.googlescholar }}">Google Scholar ↗</a>{% endif %}<a class="text-link" href="{{ '/blogs/academic/' | relative_url }}">{% include garden-text.html zh="学术文章" en="Academic notes" %} ↗</a></div>
 {% for entry in site.publications reversed %}
   {% include garden-entry.html entry=entry authors=true %}
   <div class="paper-links">{% include garden-paper-links.html item=entry %}</div>

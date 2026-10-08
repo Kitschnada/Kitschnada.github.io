@@ -1,18 +1,18 @@
 main:
-  - title: 庭中
+  - title: 首页
     title_en: Home
     url: /home/
-  - title: 近笺
-    title_en: Journal
+  - title: 文章
+    title_en: Articles
     url: /blogs/
     children:
-      - {title: 全部文章, title_en: All entries, url: /blogs/}
+      - {title: 全部文章, title_en: All articles, url: /blogs/}
       - {title: 生活, title_en: Life, url: /blogs/life/}
-      - {title: 学术, title_en: Academic, url: /blogs/academic/}
+      - {title: 学术, title_en: Research, url: /blogs/academic/}
       - {title: 学习, title_en: Study, url: /blogs/study/}
       - {title: 分享, title_en: Sharing, url: /blogs/sharing/}
   - title: 作品
-    title_en: Works
+    title_en: Projects
     url: /portfolio/
   - title: 简历
     title_en: CV

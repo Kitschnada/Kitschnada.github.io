@@ -1,20 +1,16 @@
-<header class="site-header">
-  <div class="header-inner">
-    <a class="site-signature" href="{{ '/home/' | relative_url }}" aria-label="{{ site.author.name }} · Home"><span class="signature-title">{% include garden-text.html zh="月下庭院" en="A moonlit garden" %}</span><span class="signature-owner">{% include garden-text.html zh=site.author.name_zh en=site.author.name %}<small>{% include garden-text.html zh="日常与所思" en="Notes & reflections" %}</small></span></a>
-    <div class="header-right">
-      <button class="menu-toggle js-only" type="button" aria-controls="garden-nav" aria-expanded="false">{% include garden-text.html zh="导航" en="Menu" %}<span class="menu-lines" aria-hidden="true"></span></button>
-      <nav id="garden-nav" class="garden-nav" aria-label="主导航">
-        {% for link in site.data.navigation.main %}
-        {% assign current = false %}{% if page.url == link.url %}{% assign current = true %}{% endif %}{% if link.url == '/blogs/' %}{% if page.collection == 'posts' or page.collection == 'publications' or page.collection == 'teaching' or page.collection == 'talks' or page.url contains '/blogs/' or page.url == '/publications/' %}{% assign current = true %}{% endif %}{% endif %}
-        {% if link.children %}
-        <details class="nav-dropdown"{% if current %} data-current="true"{% endif %}>
-          <summary>{% include garden-text.html zh=link.title en=link.title_en %}<span class="nav-chevron" aria-hidden="true">⌄</span></summary>
-          <div class="nav-submenu">{% for child in link.children %}<a href="{{ child.url | relative_url }}"{% if page.url == child.url %} aria-current="page"{% endif %}>{% include garden-text.html zh=child.title en=child.title_en %}</a>{% endfor %}</div>
-        </details>
-        {% else %}<a href="{{ link.url | relative_url }}"{% if current %} aria-current="page"{% endif %}>{% include garden-text.html zh=link.title en=link.title_en %}</a>{% endif %}
-        {% endfor %}
-      </nav>
+{% if page.homepage %}
+<button class="global-nav-trigger js-only" type="button" data-global-nav data-open-nav aria-label="导航 / Navigation" title="导航 / Navigation · ⌘ K" data-label-zh="导航" data-label-en="Navigation" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="m15 9-2 4-4 2 2-4z"/></svg></button>
+{% else %}
+<header class="corner-navigation">
+  <details class="corner-nav">
+    <summary class="corner-toggle" aria-label="导航 / Navigation" title="导航 / Navigation" data-label-zh="导航" data-label-en="Navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="m15 9-2 4-4 2 2-4z"/></svg><span class="sr-only">{% include garden-text.html zh="导航" en="Navigation" %}</span></summary>
+    <nav id="garden-nav" class="corner-menu" aria-label="主导航">
+      {% for link in site.data.navigation.main %}
+      {% assign current = false %}{% if page.url == link.url %}{% assign current = true %}{% endif %}{% if link.url == '/blogs/' %}{% if page.collection == 'posts' or page.collection == 'publications' or page.collection == 'teaching' or page.collection == 'talks' or page.url contains '/blogs/' or page.url == '/publications/' %}{% assign current = true %}{% endif %}{% endif %}
+      <a class="corner-link" href="{{ link.url | relative_url }}"{% if current %} aria-current="page"{% endif %}>{% include garden-text.html zh=link.title en=link.title_en %}<span aria-hidden="true">↗</span></a>
+      {% endfor %}
       {% include garden-controls.html %}
-    </div>
-  </div>
+    </nav>
+  </details>
 </header>
+{% endif %}

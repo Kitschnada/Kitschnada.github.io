@@ -1,0 +1,10 @@
+<dialog id="quick-nav" class="quick-dialog" aria-labelledby="quick-title">
+  <div class="quick-dialog-header"><h2 id="quick-title">{% include garden-text.html zh="快速跳转" en="Quick navigation" %}</h2><form method="dialog"><button type="submit" aria-label="关闭 / Close">Esc <span aria-hidden="true">×</span></button></form></div>
+  <label class="sr-only" for="quick-search">{% include garden-text.html zh="搜索页面或文章" en="Search pages or articles" %}</label><input id="quick-search" type="search" autocomplete="off" placeholder="搜索 / Search" autofocus>
+  <nav class="quick-results" aria-label="搜索结果 / Search results">
+    {% for link in site.data.navigation.main %}<a href="{{ link.url | relative_url }}" data-search-link data-search-text="{{ link.title }} {{ link.title_en }}">{% include garden-text.html zh=link.title en=link.title_en %}<span aria-hidden="true">↗</span></a>{% endfor %}
+    {% assign searchable = site.posts | concat: site.publications | concat: site.teaching | concat: site.talks | sort: 'date' | reverse %}
+    {% for entry in searchable %}<a href="{{ entry.url | relative_url }}" data-search-link data-search-text="{{ entry.title | escape }}">{{ entry.title }}<span aria-hidden="true">↗</span></a>{% endfor %}
+    <p id="search-empty" hidden>{% include garden-text.html zh="没有匹配结果" en="No results" %}</p>
+  </nav>
+</dialog>

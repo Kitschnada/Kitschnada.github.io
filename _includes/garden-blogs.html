@@ -10,7 +10,7 @@
   {% assign blog_entries = site.posts | concat: site.publications | concat: site.teaching | concat: site.talks %}
 {% endif %}
 {% assign blog_entries = blog_entries | sort: 'date' | reverse %}
-<nav class="blog-index" aria-label="近笺分类 / Journal categories">
+<nav class="blog-index" aria-label="文章分类 / Article categories">
   {% assign journal_navigation = site.data.navigation.main | where: 'url', '/blogs/' | first %}
   {% for child in journal_navigation.children %}<a href="{{ child.url | relative_url }}"{% if page.url == child.url %} aria-current="page"{% endif %}>{% include garden-text.html zh=child.title en=child.title_en %}</a>{% endfor %}
   <span class="entry-count">{{ blog_entries.size }} {% include garden-text.html zh="篇" en="entries" %}</span>

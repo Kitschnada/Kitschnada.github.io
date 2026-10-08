@@ -3,8 +3,8 @@ layout: default
 ---
 <article class="reading-page" itemscope itemtype="https://schema.org/CreativeWork">
   <header class="reading-header">
-    <a class="text-link reading-back" href="{{ '/blogs/' | relative_url }}">← {% include garden-text.html zh="近笺" en="Journal" %}</a>
-    <p class="eyebrow">{% if page.collection == "publications" %}Academic / Research paper{% elsif page.channel == "academic" %}Academic / Notes{% elsif page.collection == "teaching" %}Journal / Study{% elsif page.collection == "talks" %}Journal / Sharing{% elsif page.collection == "posts" %}Life / Journal{% else %}A page from the garden{% endif %}</p>
+    <a class="text-link reading-back" href="{{ '/blogs/' | relative_url }}">← {% include garden-text.html zh="文章" en="Articles" %}</a>
+    <p class="eyebrow">{% if page.collection == "publications" %}Academic / Research paper{% elsif page.channel == "academic" %}Academic / Notes{% elsif page.collection == "teaching" %}Journal / Study{% elsif page.collection == "talks" %}Journal / Sharing{% elsif page.collection == "posts" %}Life / Journal{% else %}Notes{% endif %}</p>
     {% assign heading = site.data.page_titles[page.url] %}
     <h1 itemprop="headline">{% if heading %}{% include garden-text.html zh=heading.zh en=heading.en %}{% else %}{{ page.title }}{% endif %}</h1>
     <div class="entry-meta">{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%Y.%m.%d" }}</time>{% endif %}{% if page.venue %}<span>{{ page.venue }}</span>{% endif %}{% if page.read_time %}<span>{% assign minutes = content | strip_html | number_of_words | divided_by: 160 | plus: 1 %}{{ minutes }} {% include garden-text.html zh="分钟阅读" en="min read" %}</span>{% endif %}</div>

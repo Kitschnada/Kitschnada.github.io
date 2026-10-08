@@ -10,12 +10,12 @@
   function syncLabels() {
     var dark = root.dataset.theme === "dark";
     if (themeButton) {
-      themeButton.setAttribute("aria-label", english() ? (dark ? "Use paper theme" : "Use night theme") : (dark ? "切换昼庭主题" : "切换夜庭主题"));
+      themeButton.setAttribute("aria-label", english() ? (dark ? "Use light theme" : "Use dark theme") : (dark ? "切换浅色主题" : "切换深色主题"));
       themeButton.setAttribute("aria-pressed", String(dark));
     }
     if (languageButton) languageButton.setAttribute("aria-label", english() ? "切换为中文" : "Switch to English");
     var meta = document.getElementById("theme-color");
-    if (meta) meta.content = dark ? "#101b2c" : "#f3efe6";
+    if (meta) meta.content = dark ? "#050507" : "#f5f5f7";
     var nav = document.getElementById("garden-nav");
     if (nav) nav.setAttribute("aria-label", english() ? "Main navigation" : "主导航");
   }
@@ -75,29 +75,6 @@
     window.addEventListener("resize", function () { if (window.innerWidth > 760) closeMenu(false); });
   }
 
-  var library = document.getElementById("poem-library");
-  var poemFigure = document.getElementById("hero-poem");
-  if (library && poemFigure) {
-    try {
-      var poems = JSON.parse(library.textContent);
-      poems = Array.isArray(poems) ? poems.filter(function (poem) {
-        return poem && typeof poem.text === "string" && poem.text.trim();
-      }) : [];
-      if (poems.length) {
-        var poem = poems[Math.floor(Math.random() * poems.length)];
-        poemFigure.lang = poem.lang || "zh-CN";
-        document.getElementById("poem-text").textContent = poem.text.trim();
-        document.getElementById("poem-author").textContent = poem.author || "";
-        var title = document.getElementById("poem-title");
-        title.textContent = poem.title || "";
-        title.hidden = !poem.title;
-        poemFigure.hidden = false;
-      } else {
-        poemFigure.hidden = true;
-      }
-    } catch (_) { /* The statically rendered first poem remains readable. */ }
-  }
-
   document.querySelectorAll("[data-copy]").forEach(function (button) {
     var timer;
     button.addEventListener("click", async function () {
@@ -131,51 +108,4 @@
     });
   });
 
-  // Pointer gestures are decorative; navigation and reading never depend on them.
-  var motion = window.matchMedia("(prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine)");
-  var scenes = document.querySelectorAll("[data-ink-scene]");
-  scenes.forEach(function (scene) {
-    var frame = 0;
-    var x = 0, y = 0;
-    function reset() {
-      cancelAnimationFrame(frame);
-      frame = 0;
-      scene.style.removeProperty("--scene-x");
-      scene.style.removeProperty("--scene-y");
-      scene.style.removeProperty("--light-x");
-      scene.style.removeProperty("--light-y");
-    }
-    scene.addEventListener("pointermove", function (event) {
-      if (!motion.matches || event.pointerType !== "mouse") return;
-      var bounds = scene.getBoundingClientRect();
-      x = Math.max(-1, Math.min(1, (event.clientX - bounds.left) / bounds.width * 2 - 1));
-      y = Math.max(-1, Math.min(1, (event.clientY - bounds.top) / bounds.height * 2 - 1));
-      if (!frame) frame = requestAnimationFrame(function () {
-        scene.style.setProperty("--scene-x", (x * 7).toFixed(2) + "px");
-        scene.style.setProperty("--scene-y", (y * 5).toFixed(2) + "px");
-        scene.style.setProperty("--light-x", (50 + x * 23).toFixed(1) + "%");
-        scene.style.setProperty("--light-y", (50 + y * 23).toFixed(1) + "%");
-        frame = 0;
-      });
-    }, { passive: true });
-    scene.addEventListener("pointerleave", reset);
-    if (motion.addEventListener) motion.addEventListener("change", reset);
-  });
-
-  document.addEventListener("click", function (event) {
-    if (!motion.matches || event.detail === 0 || event.button !== 0) return;
-    if (!event.target.closest("main") || event.target.closest("a, button, input, textarea, select, summary, label, [contenteditable], p, h1, h2, h3, blockquote, figcaption, pre, code")) return;
-    if (window.getSelection() && !window.getSelection().isCollapsed) return;
-    // Bound the number of simultaneous marks during rapid clicking.
-    var marks = document.querySelectorAll(".ink-ripple");
-    if (marks.length >= 5) marks[0].remove();
-    var mark = document.createElement("span");
-    mark.className = "ink-ripple";
-    mark.setAttribute("aria-hidden", "true");
-    mark.style.left = event.clientX + "px";
-    mark.style.top = event.clientY + "px";
-    document.body.appendChild(mark);
-    mark.addEventListener("animationend", function () { mark.remove(); }, { once: true });
-    setTimeout(function () { mark.remove(); }, 1200);
-  });
 })();
